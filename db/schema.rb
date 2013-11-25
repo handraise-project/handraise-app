@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125194936) do
+ActiveRecord::Schema.define(version: 20131125210436) do
 
   create_table "issues", force: true do |t|
     t.text     "description"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 20131125194936) do
     t.integer  "permissions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uid"
+    t.string   "github_name"
+    t.string   "provider"
+    t.string   "email"
+    t.string   "image_gravatar"
   end
 
 end
