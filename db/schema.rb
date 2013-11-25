@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20131125210436) do
 
   create_table "issues", force: true do |t|
     t.text     "description"
-    t.integer  "resolved"
+    t.integer  "resolved",    default: 0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

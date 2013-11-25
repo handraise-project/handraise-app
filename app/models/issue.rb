@@ -13,4 +13,8 @@
 class Issue < ActiveRecord::Base
   belongs_to :user
   has_many :responses
+
+  def resolved?
+    self.resolved > 0 
+  end
 end

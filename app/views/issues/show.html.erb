@@ -1,0 +1,18 @@
+<h2><%= @issue.description %></h2>
+
+<% if !@issue.resolved? %>
+<%= link_to "Mark this issue as resolved", resolve_path(@issue) %><br>
+<% end %>
+
+<% if @issue.responses.any? %>
+  Responses:
+  <ul>
+
+    <% @issue.responses.each do |response| %>
+      <li><%= response.description %></li>
+  <% end %>
+
+  </ul>
+<% end %>
+
+<%= link_to "Respond to this issue", new_issue_response_path(@issue) %>

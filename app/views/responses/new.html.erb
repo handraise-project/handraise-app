@@ -1,9 +1,6 @@
 <h1>Create A New Response</h1>
-<%= form_for @response do |f| %>
-  <p>Select Issue:
-  <%= f.select(:issue_id, options_for_select(@issue_array)) %></p><br>
+<%= form_for [@issue, @response] do |f| %>
   <p>Enter Description:</p>
   <%= f.text_area :description %><br>
-  <% f.hidden_field :user_id %>
   <%= f.submit %>
   <% end %>

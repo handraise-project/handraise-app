@@ -8,8 +8,13 @@ Handraise::Application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :signout  
 
-  resources :responses
-  resources :issues
+  resources :issues do 
+    resources :responses
+  end
+
+  get 'issues/:id/resolve' => 'issues#resolve', :as => 'resolve'
+
+  #resources :issues
   resources :users
 
   # OMNIAUTH

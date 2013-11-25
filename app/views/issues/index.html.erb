@@ -1,6 +1,7 @@
 <h1>Issues</h1>
 <br>
-<% @issues.each do |issue| %>
-<h4><%= issue.description %></h4>
+<%= link_to "Post a new issue", new_issue_path %>
 <br>
+<% @issues.each do |issue| %>
+<p><%= link_to issue.description, issue %> (<%= pluralize(issue.responses.count, "response") %>)</p>
 <% end %>
