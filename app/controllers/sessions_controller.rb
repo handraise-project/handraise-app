@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #skip_before_filter :require_login, :only => :new 
+  skip_before_filter :require_login
   
   def new
 
@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
       user = User.create_from_omniauth(auth_hash)
       session[:user_id] = user.id
       session[:token] = auth_hash[:credentials][:token]
-      redirect_to root_path, notice: "Signed in"
+      redirect_to issues_path, notice: "Signed in"
     else
-      redirect_to root_path, notice: "Welcome back!"
+      redirect_to issues_path, notice: "Welcome back!"
     end
   end
 

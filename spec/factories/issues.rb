@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :issue do
-    description "MyText"
+    description {Faker::Lorem.sentence}
     resolved 1
     user nil
   end
