@@ -2,6 +2,12 @@
 <br>
 <%= link_to "Post a new issue", new_issue_path %>
 <br>
-<% @issues.each do |issue| %>
+<% @unresolved_issues.each do |issue| %>
+<p><%= link_to issue.description, issue %> (<%= pluralize(issue.responses.count, "response") %>)</p>
+<% end %>
+
+<h1>Resolved Issues</h1>
+
+<% @resolved_issues.each do |issue| %>
 <p><%= link_to issue.description, issue %> (<%= pluralize(issue.responses.count, "response") %>)</p>
 <% end %>

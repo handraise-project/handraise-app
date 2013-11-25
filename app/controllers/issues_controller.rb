@@ -2,7 +2,10 @@ class IssuesController < ApplicationController
 
   def index
     #TODO: eager load this
-    @issues = Issue.all
+#    @issues = Issue.all
+
+    @unresolved_issues = Issue.where("resolved = 0")
+    @resolved_issues = Issue.where("resolved = 1")
   end
 
   def new
@@ -18,6 +21,17 @@ class IssuesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @issue = Issue.find(params[:id])
+  end
+
+  def update
+    @issue = Issue.find(params[:id])
+    @issue.update(issue_params)
+    @issue.save
+    redirect_to @issue
   end
 
   def show
