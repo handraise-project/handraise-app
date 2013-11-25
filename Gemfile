@@ -37,5 +37,5 @@ group :test, :development do
   gem "guard-rspec"
   gem "pry"
   gem "meta_request"
-  gem "annotate_models"
+  gem 'annotate', ">=2.5.0"
 end
