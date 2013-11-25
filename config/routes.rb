@@ -1,9 +1,21 @@
 Handraise::Application.routes.draw do
+
+  #get "sessions/create"
+  #get "sessions/destroy"
+  #get "site/start"
+  root 'site#start'
+
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy', as: :signout  
+
   resources :responses
-
   resources :issues
-
   resources :users
+
+  # OMNIAUTH
+  get '/auth/github/' => redirect('/auth/github')
+  get '/auth/github/callback', to: 'sessions#create'
+  get '/auth/failure' => redirect('/')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
