@@ -6,10 +6,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.from_omniauth(auth_hash)
-    session[:user_id] = user.id
-    session[:token] = auth_hash[:credentials][:token]
-    redirect_to root_path, notice: "Signed in"
+    if !@current_user
+      user = User.create_from_omniauth(auth_hash)
+      session[:user_id] = user.id
+      session[:token] = auth_hash[:credentials][:token]
+      redirect_to root_path, notice: "Signed in"
+    else
+      redirect_to root_path, notice: "Welcome back!"
+    end
   end
 
   def destroy

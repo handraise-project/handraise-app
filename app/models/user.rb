@@ -2,27 +2,22 @@
 #
 # Table name: users
 #
-#  id             :integer          not null, primary key
-#  name           :string(255)
-#  permissions    :integer
-#  created_at     :datetime
-#  updated_at     :datetime
-#  uid            :string(255)
-#  github_name    :string(255)
-#  provider       :string(255)
-#  email          :string(255)
-#  image_gravatar :string(255)
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  permissions :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 class User < ActiveRecord::Base
   has_many :issues
   has_many :responses
 
-  def self.from_omniauth(auth)
-     # where(auth.slice("provider", "uid")).first ||
+  # def self.from_omniauth(auth)
+  #    # where(auth.slice("provider", "uid")).first ||
 
-    create_from_omniauth(auth)
-  end
+  #   create_from_omniauth(auth)
+  # end
 
   def self.create_from_omniauth(auth)
     create! do |user|
