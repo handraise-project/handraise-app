@@ -1,7 +1,10 @@
 <h2><%= @issue.title.titleize %></h2>
 <h3><%= @issue.description %></h3>
+<% if current_user.id == @issue.user_id || current_user.permissions > 0 %>
+<%= link_to "Edit this issue", edit_issue_path(@issue) %>
+<% end %>
 
-<h2>Posted by <%= issue_poster_name(@issue) %></h2>
+<h4>Posted by <%= issue_poster_name(@issue) %></h4>
 
 <% if !@issue.resolved? && (current_user.id == @issue.user_id || current_user.permissions > 0) %>
 <%= link_to "Mark this issue as resolved", resolve_path(@issue) %><br>
@@ -18,6 +21,11 @@
   </ul>
 <% end %>
 
-<%= link_to "Respond to this issue", new_issue_response_path(@issue) %> | <%= link_to "Edit this issue", edit_issue_path(@issue) %>
+<br>
+<br>
+<strong> Add Response </strong><br>
+<%= render "responses/new" %><br>
+
+<%#= link_to "Respond to this issue", new_issue_response_path(@issue) %>
 
   
