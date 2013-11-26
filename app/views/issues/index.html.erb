@@ -7,7 +7,7 @@
 </ul>
 
 <h1>Resolved Issues</h1>
-<ul>
+<ul class="button-list">
 <% @resolved_issues.each do |issue| %>
 <li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>
 <% end %>
