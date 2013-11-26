@@ -50,7 +50,7 @@ class IssuesController < ApplicationController
 
 
   def issue_params
-    params.require(:issue).permit(:description)  
+    params.require(:issue).permit(:description, :anonymous)  
   end
 
 end

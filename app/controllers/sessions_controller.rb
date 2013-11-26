@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if !@current_user
+    if !current_user
       user = User.create_from_omniauth(auth_hash)
       session[:user_id] = user.id
       session[:token] = auth_hash[:credentials][:token]

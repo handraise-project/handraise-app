@@ -1,6 +1,8 @@
 <h2><%= @issue.title.titleize %></h2>
 <h3><%= @issue.description %></h3>
 
+<h2>Posted by <%= issue_poster_name(@issue) %></h2>
+
 <% if !@issue.resolved? %>
 <%= link_to "Mark this issue as resolved", resolve_path(@issue) %><br>
 <% end %>

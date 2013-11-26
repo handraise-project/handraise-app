@@ -4,7 +4,13 @@
   <p>
   <%= f.text_field :title %>
   <%= f.label :description %><br>
+  <%= f.label :description %>
   <%= f.text_area :description %>
+  <p>
+  <%= f.label :anonymous, "Show my name " %>
+  <%= f.radio_button :anonymous, :false, :checked => true %>
+  <%= f.label :anonymous, "Post anonymously" %>
+  <%= f.radio_button :anonymous, :true %>
   </p>
 
   <%= f.submit %>

@@ -29,4 +29,12 @@ class User < ActiveRecord::Base
       user.image_gravatar = auth["info"]["image"]
     end
   end 
+
+  def display_name
+    self.name || self.github_name
+  end
+
+  def admin?
+    true if self.permissions && self.permissions > 0 || false
+  end
 end

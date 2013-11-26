@@ -5,6 +5,7 @@ FactoryGirl.define do
     title {Faker::Company.bs}
     description {Faker::Lorem.sentence}
     resolved 0
-    user nil
+    anonymous false
+    #user
   end
 end

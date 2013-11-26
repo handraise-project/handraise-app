@@ -2,7 +2,12 @@
 
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    permissions 1
+    name { Faker::Name.first_name }
+    permissions 0
+  end
+
+  factory :admin, :class => :user do 
+    name { "Admin User" }
+    permissions 10
   end
 end
