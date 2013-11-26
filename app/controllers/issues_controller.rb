@@ -1,4 +1,5 @@
 class IssuesController < ApplicationController
+  before_action :set_issue, :only => [:edit, :update, :show, :resolved]
 
   def index
     #TODO: eager load this
@@ -24,28 +25,30 @@ class IssuesController < ApplicationController
   end
 
   def edit
-    @issue = Issue.find(params[:id])
   end
 
   def update
-    @issue = Issue.find(params[:id])
     @issue.update(issue_params)
     @issue.save
     redirect_to @issue
   end
 
   def show
-    @issue = Issue.find_by(:id => params[:id])
   end
 
-  def resolve
-    @issue = Issue.find(params[:id])
+  def resolved
     @issue.resolved = 1
     @issue.save
     redirect_to issues_path, :notice => "Resolved!"
   end
 
   private
+
+  def set_issue
+    @issue = Issue.find(params[:id])
+  end
+
+
   def issue_params
     params.require(:issue).permit(:description)  
   end
