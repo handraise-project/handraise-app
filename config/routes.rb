@@ -12,7 +12,7 @@ Handraise::Application.routes.draw do
     resources :responses
   end
 
-  get 'issues/:id/resolve' => 'issues#resolve', :as => 'resolve'
+  get 'issues/:id/resolve' => 'issues#resolved', :as => 'resolve'
 
   #resources :issues
   resources :users
