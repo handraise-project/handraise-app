@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126145804) do
+ActiveRecord::Schema.define(version: 20131126220239) do
+
+  create_table "courses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "issues", force: true do |t|
     t.text     "description"
@@ -21,8 +27,10 @@ ActiveRecord::Schema.define(version: 20131126145804) do
     t.datetime "updated_at"
     t.string   "title"
     t.boolean  "anonymous",   default: false
+    t.integer  "course_id"
   end
 
+  add_index "issues", ["course_id"], name: "index_issues_on_course_id"
   add_index "issues", ["user_id"], name: "index_issues_on_user_id"
 
   create_table "responses", force: true do |t|
@@ -38,7 +46,7 @@ ActiveRecord::Schema.define(version: 20131126145804) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "permissions",    default: 0
+    t.boolean  "admin",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uid"

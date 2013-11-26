@@ -1,5 +1,7 @@
 Handraise::Application.routes.draw do
 
+  resources :courses
+
   #get "sessions/create"
   #get "sessions/destroy"
   #get "site/start"
