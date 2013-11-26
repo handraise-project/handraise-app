@@ -1,11 +1,13 @@
-// // customize bootstrap variables here:
-// @import "variables";
-// @import "bootstrap";
-
-// // CONTAINER
-// // ----------------------------
-// .top-buffer {
-//   margin-top: 50px;
-// }
-
-
+// LOGIN VIEW
+// ----------------------------
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  //margin-top: -40px;
+  margin-left: -100px;
+   text-align: center;
+}
+.login-button {
+  max-width: 200px;
+}
