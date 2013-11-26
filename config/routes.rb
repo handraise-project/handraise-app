@@ -3,7 +3,7 @@ Handraise::Application.routes.draw do
   #get "sessions/create"
   #get "sessions/destroy"
   #get "site/start"
-  root 'site#start'
+  root 'issues#index'
 
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :signout  

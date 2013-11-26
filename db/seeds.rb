@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# 2.times do
+#  FactoryGirl.create(:user, :permissions => 10)
+# end
+
 20.times do
-FactoryGirl.create(:issue)
+ FactoryGirl.create(:issue)
 end
