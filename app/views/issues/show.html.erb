@@ -6,7 +6,7 @@
 
 <h4>Posted by <%= issue_poster_name(@issue) %></h4>
 
-<% if !@issue.resolved? && (current_user.id == @issue.user_id || current_user.permissions > 0) %>
+<% if can_see_resolve_button?(@issue) %>
 <%= link_to "Mark this issue as resolved", resolve_path(@issue) %><br>
 <% end %>
 
