@@ -11,8 +11,7 @@ gem 'jquery-rails'
 gem 'octokit'
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
 
-gem 'compass-rails', '~> 2.0.alpha.0', :group => :assets 
-gem 'bootstrap-sass', '~> 3.0.2.1'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
