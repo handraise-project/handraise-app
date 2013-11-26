@@ -1,10 +1,5 @@
 class ResponsesController < ApplicationController
 
-  def new
-    @issue = Issue.find(params[:issue_id])
-    @response = Response.new
-  end
-
   def create
     @issue = Issue.find(params[:issue_id])
     @response = @issue.responses.build(response_params) 
