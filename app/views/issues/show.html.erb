@@ -15,7 +15,7 @@
   <ul>
 
     <% @issue.responses.each do |response| %>
-      <li><%= response.description %></li>
+      <li><%= display_name(response.user) %>: "<%= response.description %>"</li>
   <% end %>
 
   </ul>
