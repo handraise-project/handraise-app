@@ -21,8 +21,5 @@ class User < ActiveRecord::Base
   def display_name
     self.name || self.github_name
   end
-
-  def admin?
-    true if self.permissions && self.permissions > 0 || false
-  end
+  
 end
