@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :issue do
+    title {Faker::Company.bs}
     description {Faker::Lorem.sentence}
     resolved 0
     user nil
