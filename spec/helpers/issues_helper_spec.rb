@@ -12,4 +12,7 @@ require 'spec_helper'
 # end
 describe IssuesHelper do
   pending "add some examples to (or delete) #{__FILE__}"
+
+  it "shows anonymous when a post is anonymous" do
+  end
 end

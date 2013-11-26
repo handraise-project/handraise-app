@@ -10,4 +10,9 @@ FactoryGirl.define do
     name { "Admin User" }
     permissions 10
   end
+
+  factory :user_without_name, :class => :user  do 
+    permissions 0
+    github_name "My github name"
+  end
 end

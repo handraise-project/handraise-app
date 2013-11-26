@@ -2,10 +2,25 @@
 
 FactoryGirl.define do
   factory :issue do
-    title {Faker::Company.bs}
-    description {Faker::Lorem.sentence}
+    title { Faker::Company.bs }
+    description { Faker::Lorem.sentence }
+    resolved 0
+    anonymous false
+  end
+
+  factory :anonymous_issue, :class => :issue do
+    title { Faker::Company.bs }
+    description { Faker::Lorem.sentence }
+    resolved 0
+    anonymous true
+  end
+
+  factory :user_issue, :class => :issue do 
+    title { Faker::Company.bs }
+    description { Faker::Lorem.sentence }
     resolved 0
     anonymous false
     user
   end
+
 end
