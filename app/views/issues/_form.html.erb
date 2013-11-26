@@ -1,7 +1,8 @@
 <%= form_for @issue do |f| %>
   <p>
   <%= f.label :title %><br>
-  <%= f.text_field :title %><br>
+  <%= f.text_field :title %>
+  <p class="errors"><%= @issue.errors.messages[:title][0] %></p>
   <%= f.label :description %><br>
   <%= f.text_area :description %><br>
   <p>
