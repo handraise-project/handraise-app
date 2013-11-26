@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p>Current User: <%= @current_user.inspect %></p>
-<%= flash[:notice] if flash[:notice] %>
+<% if @current_user %>
+  Signed in as <%= current_user_name %>. <%= link_to "Log out", signout_path %>
+<% else %>
+  <%= link_to "Sign up or login", auth_github_path %>
+<% end %>
+<br><br>
+<% if flash[:notice] %>
+<p style="color:red"><%= flash[:notice] %>
+<% end %>
 <%= yield %>
 
 </body>
