@@ -1,13 +1,14 @@
+<%= link_to "Post a new issue", new_issue_path, class:"btn btn-default pull-right" %>
+<ul class="button-list">
 <h1>Issues</h1>
-<br>
-<%= link_to "Post a new issue", new_issue_path %>
-<br>
 <% @unresolved_issues.each do |issue| %>
-<p><%= link_to issue.title.titleize, issue %> (<%= pluralize(issue.responses.count, "response") %>)</p>
+<li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>
 <% end %>
+</ul>
 
 <h1>Resolved Issues</h1>
-
+<ul>
 <% @resolved_issues.each do |issue| %>
-<p><%= link_to issue.title.titleize, issue %> (<%= pluralize(issue.responses.count, "response") %>)</p>
+<li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>
 <% end %>
+</ul>
