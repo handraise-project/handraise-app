@@ -34,7 +34,6 @@ class IssuesController < ApplicationController
   end
 
   def show
-    set_issue
     @response = Response.new
   end
 

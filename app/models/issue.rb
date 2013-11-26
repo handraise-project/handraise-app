@@ -15,6 +15,7 @@
 class Issue < ActiveRecord::Base
   belongs_to :user
   has_many :responses
+  validates :title, presence: true
 
   def resolved?
     self.resolved > 0 
