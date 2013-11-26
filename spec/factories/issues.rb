@@ -6,6 +6,6 @@ FactoryGirl.define do
     description {Faker::Lorem.sentence}
     resolved 0
     anonymous false
-    #user
+    user
   end
 end
