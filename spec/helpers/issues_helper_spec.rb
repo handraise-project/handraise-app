@@ -11,8 +11,11 @@ require 'spec_helper'
 #   end
 # end
 describe IssuesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
 
   it "shows anonymous when a post is anonymous" do
+    issue = FactoryGirl.create(:user_issue)
+    helper.stub(:current_user) { issue.user }
+    expect(helper.issue_poster_name(issue)).to eq issue.user.name
   end
+
 end
