@@ -37,8 +37,10 @@ class IssuesController < ApplicationController
   end
 
   def resolved
-    @issue.resolved = 1
-    @issue.save
+    if current_user.id == @issue.user_id || current_user.permissions > 0
+      @issue.resolved = 1
+      @issue.save
+    end
     redirect_to issues_path, :notice => "Resolved!"
   end
 
@@ -50,7 +52,7 @@ class IssuesController < ApplicationController
 
 
   def issue_params
-    params.require(:issue).permit(:description, :anonymous)  
+    params.require(:issue).permit(:description, :anonymous, :title)  
   end
 
 end

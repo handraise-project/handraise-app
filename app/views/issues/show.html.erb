@@ -3,7 +3,7 @@
 
 <h2>Posted by <%= issue_poster_name(@issue) %></h2>
 
-<% if !@issue.resolved? %>
+<% if !@issue.resolved? && (current_user.id == @issue.user_id || current_user.permissions > 0) %>
 <%= link_to "Mark this issue as resolved", resolve_path(@issue) %><br>
 <% end %>
 
