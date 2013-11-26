@@ -6,13 +6,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if !current_user
-      user = User.create_from_omniauth(auth_hash)
+    user = User.find_or_create_by_omniauth(auth_hash)
+
+    if user 
       session[:user_id] = user.id
       session[:token] = auth_hash[:credentials][:token]
       redirect_to issues_path, notice: "Signed in"
-    else
-      redirect_to issues_path, notice: "Welcome back!"
     end
   end
 

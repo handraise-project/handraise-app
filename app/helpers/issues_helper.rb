@@ -15,5 +15,3 @@ module IssuesHelper
   end
 
 end
-
-

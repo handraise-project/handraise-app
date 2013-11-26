@@ -15,6 +15,7 @@
 class Issue < ActiveRecord::Base
   belongs_to :user
   has_many :responses
+  validates_presence_of :title, message: "Issues Must Have A Title."
 
   def resolved?
     self.resolved > 0 
