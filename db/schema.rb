@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20131126220239) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "permissions",    default: 0
+    t.boolean  "admin",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uid"

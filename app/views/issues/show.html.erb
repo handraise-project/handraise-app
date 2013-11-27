@@ -1,30 +1,32 @@
 <h2><%= @issue.title.titleize %></h2>
-<h3><%= @issue.description %></h3>
-<% if current_user.id == @issue.user_id || current_user.permissions > 0 %>
-<%= link_to "Edit this issue", edit_issue_path(@issue) %>
+<p><%= @issue.description %></p>
+
+<ul class="list-inline">
+  <li class="meta-info">Posted by <%= issue_poster_name(@issue) %></li>
+  <% if current_user.id == @issue.user_id || current_user.permissions > 0 %>
+  <li><a class="btn btn-default btn-xs" href="<%= edit_issue_path(@issue) %>" role="button", class:"btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</a></li>
 <% end %>
-
-<h4>Posted by <%= issue_poster_name(@issue) %></h4>
-
-<% if can_see_resolve_button?(@issue) %>
-<%= link_to "Mark this issue as resolved", resolve_path(@issue) %><br>
-<% end %>
-
+<%# if can_see_resolve_button?(@issue) %>
+<li>
+<%= link_to "Mark as resolved", resolve_path(@issue), class:"btn btn-default btn-xs" %>
+</li>
+<%# end %>
+</ul>
 <% if @issue.responses.any? %>
-  Responses:
-  <ul>
-
+<div class="issue-replies">
+<h3>Replies</h3> 
+  <ul class="no-bullets">
     <% @issue.responses.each do |response| %>
-      <li><%= display_name(response.user) %>: "<%= response.description %>"</li>
-  <% end %>
-
+      <li><p class:"replier"><%= display_name(response.user)%>:</p> 
+      <blockquote>
+        <%= response.description %>
+      </blockquote>
+      </li>
+    <% end %>
   </ul>
 <% end %>
-
-<br>
-<br>
-<strong> Add Response </strong><br>
-<%= render "responses/new" %><br>
+</div>
+<%= render "responses/new" %>
 
 <%#= link_to "Respond to this issue", new_issue_response_path(@issue) %>
 
