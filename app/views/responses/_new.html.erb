@@ -1,5 +1,6 @@
-<%= form_for [@issue, @response] do |f| %>
-  <p>Enter Description:</p>
-  <%= f.text_area :description %><br>
-  <%= f.submit %>
+<%= form_for [@issue, @response], :html => {:role => "form"} do |f| %>
+<div class="form-group">
+  <%= f.text_area :description, class:"form-control", placeholder:"Add a reply..."  %>
+  </div>
+  <%= f.submit "Reply", class:"btn btn-primary" %>
 <% end %>
