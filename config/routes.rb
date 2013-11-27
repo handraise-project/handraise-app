@@ -1,7 +1,9 @@
 Handraise::Application.routes.draw do
 
-  resources :courses
-
+  resources :courses do 
+    resources :issues
+  end
+  
   #get "sessions/create"
   #get "sessions/destroy"
   #get "site/start"
@@ -10,14 +12,14 @@ Handraise::Application.routes.draw do
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :signout  
 
-  resources :issues do 
-    resources :responses
-  end
+  # resources :issues do 
+  #   resources :responses
+  # end
 
   get 'issues/:id/resolve' => 'issues#resolved', :as => 'resolve'
 
   #resources :issues
-  resources :users
+  # resources :users
 
   # OMNIAUTH
   get '/auth/github/' => redirect('/auth/github')

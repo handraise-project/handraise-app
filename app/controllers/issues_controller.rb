@@ -1,5 +1,6 @@
 class IssuesController < ApplicationController
   before_action :set_issue, :only => [:edit, :update, :show, :resolved]
+  before_action :set_course, :only => [:new]
 
   def index
     #TODO: eager load this
@@ -34,7 +35,7 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @response = Response.new
+    #@response = Response.new
   end
 
   def resolved
@@ -49,6 +50,10 @@ class IssuesController < ApplicationController
 
   def set_issue
     @issue = Issue.find(params[:id])
+  end
+
+  def set_course
+    @course = Course.find_by(:id => params[:course_id])
   end
 
 
