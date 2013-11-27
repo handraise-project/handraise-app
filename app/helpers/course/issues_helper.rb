@@ -1,0 +1,2 @@
+module Course::IssuesHelper
+end
