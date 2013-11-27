@@ -1,3 +1,8 @@
+//VARIABLES
+// ----------------------------
+$light-gray:    #c7c9cd;
+
+
 // LOGIN VIEW
 // ----------------------------
 .centered {
@@ -13,6 +18,32 @@
 }
 
 
+// ISSUE REPLIES
+// ----------------------------
+.issue-replies {
+  h3 {
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: .5em;
+  }
+  .replier {
+    margin-bottom: 5px;
+    font-size: smaller;
+    color:$light-gray;
+
+  }
+  li, blockquote {
+    margin-bottom:0;
+  }
+}
+
+// META INFO
+// For example: info about an issue, such as author or date-time posted
+// ----------------------------
+.meta-info {
+  font-size: smaller;
+  color:$light-gray;  
+}
+
 // LISTS
 // ----------------------------
 .button-list {
@@ -25,6 +56,17 @@
     margin-bottom:10px;    
     background-color:#eeeeee;
     cursor:pointer;
+  }
+}
+
+.no-bullets {
+  list-style:none;
+  margin-left:0;
+  padding-left:0;
+
+  li {
+    padding:5px 10px;
+    margin-bottom:10px;
   }
 }
 
