@@ -3,6 +3,8 @@ Handraise::Application.routes.draw do
   resources :courses do 
     resources :issues, :controller => 'course/issues', except: [:index]
   end
+
+  get 'courses/:course_id/issues/:id/resolve' => 'course/issues#resolve', :as => 'resolve_issue'
   
   #get "sessions/create"
   #get "sessions/destroy"
@@ -16,7 +18,7 @@ Handraise::Application.routes.draw do
   #   resources :responses
   # end
 
-  get 'issues/:id/resolve' => 'issues#resolved', :as => 'resolve'
+  #get 'issues/:id/resolve' => 'issues#resolved', :as => 'resolve'
 
   #resources :issues
   # resources :users

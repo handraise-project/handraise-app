@@ -1,6 +1,6 @@
 class Course::IssuesController < ApplicationController
-  before_action :set_course_and_issue
   before_action :set_course
+  before_action :set_issue, except: [:new]
 
   def show
   end
@@ -34,10 +34,15 @@ class Course::IssuesController < ApplicationController
     end
   end
 
+  def resolve
+    @issue.update(:resolved => 1)
+    @issue.save
+    redirect_to @course, :notice => "Resolved!"
+  end
+
   private
-  def set_course_and_issue
+  def set_issue
     @issue = Issue.find_by(:id => params[:id])
-    #@course = @issue.course
   end
 
   def set_course

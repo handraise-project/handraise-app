@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
 
     if @course.save
-      redirect_to courses_path, :notice => "Created!"
+      redirect_to @course, :notice => "Created!"
     else
       render :new
     end

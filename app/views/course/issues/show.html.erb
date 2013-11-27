@@ -5,7 +5,7 @@
 <h4>Posted by <%= issue_poster_name(@issue) %></h4>
 
 <% if can_see_resolve_button?(@issue) %>
-<%= link_to "Mark this issue as resolved", resolve_path(@issue) %><br>
+<%= link_to "Mark this issue as resolved", resolve_issue_path(@course, @issue) %><br>
 <% end %>
 
 <% if @issue.responses.any? %>
