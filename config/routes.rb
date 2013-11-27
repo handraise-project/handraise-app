@@ -6,19 +6,13 @@ Handraise::Application.routes.draw do
 
   get 'courses/:course_id/issues/:id/resolve' => 'course/issues#resolve', :as => 'resolve_issue'
   
-  #get "sessions/create"
-  #get "sessions/destroy"
-  #get "site/start"
+  get "sessions/create"
+  get "sessions/destroy"
+  get "site/start"
   root 'courses#index'
 
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :signout  
-
-  # resources :issues do 
-  #   resources :responses
-  # end
-
-  #get 'issues/:id/resolve' => 'issues#resolved', :as => 'resolve'
 
   #resources :issues
   # resources :users
