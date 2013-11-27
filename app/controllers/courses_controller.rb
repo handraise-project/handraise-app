@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_filter :set_course, only: [:show, :edit]
+  before_filter :set_course, only: [:show, :edit, :update]
 
   def index
     @courses = Course.all
@@ -25,6 +25,15 @@ class CoursesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    @course.update(course_params)
+    if @course.save
+      redirect_to @course, :notice => "Edited!"
+    else
+      render :edit
+    end
   end
 
   private

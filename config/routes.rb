@@ -1,7 +1,7 @@
 Handraise::Application.routes.draw do
 
   resources :courses do 
-    resources :issues, :controller => 'course/issues'
+    resources :issues, :controller => 'course/issues', except: [:index]
   end
   
   #get "sessions/create"
