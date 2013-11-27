@@ -1,0 +1,5 @@
+<%= form_for @response, :url => add_response_path(@course,@issue) do |f| %>
+  <p><%= f.text_field :description %></p>
+
+  <p><%= f.submit %></p>
+<% end %> 

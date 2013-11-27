@@ -3,6 +3,7 @@ class Course::IssuesController < ApplicationController
   before_action :set_issue, except: [:new]
 
   def show
+    @response = Response.new
   end
 
   def new
@@ -40,6 +41,10 @@ class Course::IssuesController < ApplicationController
     redirect_to @course, :notice => "Resolved!"
   end
 
+  def add_response
+    throw params
+  end
+
   private
   def set_issue
     @issue = Issue.find_by(:id => params[:id])
@@ -52,4 +57,5 @@ class Course::IssuesController < ApplicationController
   def issue_params
     params.require(:issue).permit(:title,:description,:anonymous)
   end
+
 end
