@@ -1,17 +1,15 @@
 <h2><%= @course.name %></h2>
 
-<%= link_to "Post a new issue", new_course_issue_path(@course), class:"btn btn-default pull-right" %>
-
 <ul class="button-list">
 <h1>Issues</h1>
 <% @unresolved_issues.each do |issue| %>
-<li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>
+<li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", course_issue_path(@course, issue) %></li>
 <% end %>
 </ul>
 
 <h1>Resolved Issues</h1>
 <ul class="button-list">
 <% @resolved_issues.each do |issue| %>
-<li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>
+<li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", course_issue_path(@course, issue) %></li>
 <% end %>
 </ul>

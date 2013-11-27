@@ -1,9 +1,5 @@
 <h2><%= @issue.title.titleize %></h2>
 <h3><%= @issue.description %></h3>
-<% if current_user.id == @issue.user_id || current_user.permissions > 0 %>
-<%= link_to "Edit this issue", edit_issue_path(@issue) %>
-<% end %>
-
 <h4>Posted by <%= issue_poster_name(@issue) %></h4>
 
 <% if can_see_resolve_button?(@issue) %>

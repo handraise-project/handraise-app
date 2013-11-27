@@ -17,9 +17,10 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.new(issue_params)
     @issue.user = current_user
+    @issue.course = Course.find_by(:id => params[:course_id])
     
     if @issue.save
-      redirect_to issues_path, :notice => "Posted!"
+      redirect_to @issue.course, :notice => "Posted!"
     else
       render :new
     end
