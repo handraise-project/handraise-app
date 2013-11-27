@@ -10,6 +10,7 @@
 #  updated_at  :datetime
 #  title       :string(255)
 #  anonymous   :boolean          default(FALSE)
+#  course_id   :integer
 #
 
 require 'spec_helper'

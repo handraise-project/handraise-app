@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id             :integer          not null, primary key
+#  name           :string(255)
+#  permissions    :integer          default(0)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  uid            :string(255)
+#  github_name    :string(255)
+#  provider       :string(255)
+#  email          :string(255)
+#  image_gravatar :string(255)
+#
+
 class User < ActiveRecord::Base
   has_many :issues
   has_many :responses
