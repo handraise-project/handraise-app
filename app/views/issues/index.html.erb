@@ -1,11 +1,24 @@
 <%= link_to "New issue", new_issue_path, class:"btn btn-default pull-right" %>
-<ul class="issues-list">
 <h1>Issues</h1>
-<% @unresolved_issues.each do |issue| %>
-<li><a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.titleize %><ul class="meta-info list-inline pull-right"><li>&mdash;<%= issue_poster_name(issue) %></li> <li><span class="label label-default"><span class="glyphicon glyphicon-comment"></span> <%= pluralize(issue.responses.count, 'Reply') %></span></li></ul>
-</a>
-</li>
-<% end %>
+<ul class="issues-list">
+  <% @unresolved_issues.each do |issue| %>
+    <li>
+      <a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.titleize %>
+      <div class="pull-right">
+      <ul class="meta-info">
+        <li><%= issue_poster_name(issue) %>,</li>
+        <li><%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago</li>
+        <li>&nbsp;&nbsp;</li>
+        <li><span class="label label-default">
+              <span class="glyphicon glyphicon-comment">
+              </span>
+               <%= pluralize(issue.responses.count, 'Reply') %>
+            </span></li>
+      </ul>
+      </div>
+      </a>
+    </li>
+  <% end %>
 </ul>
 
 

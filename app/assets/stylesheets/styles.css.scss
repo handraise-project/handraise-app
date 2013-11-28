@@ -74,14 +74,38 @@ $light-gray:    #c7c9cd;
         text-decoration: none;
       }
 
+      p {
+        float: right;
+      }
+
+      // .margin-left {
+      //   margin-left:5px;
+      // }
+
       ul {
+        list-style:none;
         li {
+          display: inline-block;
           border: none;
-          padding:2px 10px 0 0;          
+          padding:2px 0 0 0;          
           background-color:inherit;
         }
       }
     }
+}
+
+// INLINE (HORIZONTAL) LIST
+// ----------------------------
+.inline-list {
+  list-style:none;
+    margin-left:0;
+  padding-left:0;
+  li {
+    display: inline-block;
+    border: none;
+    padding:2px 0 0 0;          
+    background-color:inherit;
+  }
 }
 
 
@@ -92,14 +116,12 @@ $light-gray:    #c7c9cd;
     border-bottom: 1px solid $light-gray;
     padding-bottom: .5em;
   }
-  .replier {
-    margin-bottom: 5px;
-    font-size: smaller;
-    color:$light-gray;
-
+  p {
+    margin-bottom: 0;
   }
   li, blockquote {
-    margin-bottom:0;
+    margin-bottom:5px;
+    font-size: smaller;
   }
 }
 
@@ -107,7 +129,7 @@ $light-gray:    #c7c9cd;
 // For example: info about an issue, such as author or date-time posted
 // ----------------------------
 .meta-info {
-  font-size: smaller;
+  font-size:x-small;
   color:$light-gray;  
 }
 

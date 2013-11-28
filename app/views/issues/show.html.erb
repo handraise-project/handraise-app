@@ -1,23 +1,28 @@
 <h2><%= @issue.title.titleize %></h2>
 <p><%= auto_link(@issue.description) %></p>
-
-<ul class="list-inline">
-  <li class="meta-info">Posted by <%= issue_poster_name(@issue) %></li>
+<ul class="pull-right inline-list">
   <% if current_user.id == @issue.user_id || current_user.permissions > 0 %>
   <li><a class="btn btn-default btn-xs" href="<%= edit_issue_path(@issue) %>" role="button", class:"btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</a></li>
 <% end %>
-<%# if can_see_resolve_button?(@issue) %>
+<% if can_see_resolve_button?(@issue) %>
 <li>
 <%= link_to "Mark as resolved", resolve_path(@issue), class:"btn btn-default btn-xs" %>
 </li>
-<%# end %>
+<% end %>
 </ul>
+
+<ul class="inline-list meta-info">
+  <li><%= issue_poster_name(@issue) %></li>
+  <li><%= time_ago_in_words(@issue.created_at, :seconds => true ) %> ago</li>
+  </ul>
+  
 <% if @issue.responses.any? %>
 <div class="issue-replies">
 <h3>Replies</h3> 
   <ul class="no-bullets">
     <% @issue.responses.each do |response| %>
-      <li><p class:"replier"><%= display_name(response.user)%>:</p> 
+      <li>
+      <p class="meta-info"><%= display_name(response.user)%>, <%= time_ago_in_words(response.created_at, :seconds => true ) %> ago:</p>
       <blockquote>
         <%= auto_link(response.description) %>
       </blockquote>
