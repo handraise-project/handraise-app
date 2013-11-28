@@ -2,6 +2,25 @@
 // ----------------------------
 $light-gray:    #c7c9cd;
 
+// APP BRAND
+// ----------------------------
+
+.navbar-brand {
+  margin-top: 5px;
+  position: relative;
+    .app-brand {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .app-name {
+      position: absolute;
+      bottom: 0;
+      left:40px;
+    }
+}
+
+
 
 // LOGIN VIEW
 // ----------------------------
