@@ -1,5 +1,5 @@
 <h2><%= @issue.title.titleize %></h2>
-<p><%= @issue.description %></p>
+<p><%= auto_link(@issue.description) %></p>
 
 <ul class="list-inline">
   <li class="meta-info">Posted by <%= issue_poster_name(@issue) %></li>
@@ -19,7 +19,7 @@
     <% @issue.responses.each do |response| %>
       <li><p class:"replier"><%= display_name(response.user)%>:</p> 
       <blockquote>
-        <%= response.description %>
+        <%= auto_link(response.description) %>
       </blockquote>
       </li>
     <% end %>

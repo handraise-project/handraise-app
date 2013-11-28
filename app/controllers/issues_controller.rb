@@ -34,6 +34,7 @@ class IssuesController < ApplicationController
   end
 
   def show
+    #@issue_with_links = auto_link(@issue, :link => :urls)
     @response = Response.new
   end
 

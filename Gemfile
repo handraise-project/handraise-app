@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'dotenv-rails'
 gem 'faker'
 gem 'jquery-rails'
+gem 'rails_autolink'
 
 gem 'octokit'
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
