@@ -13,6 +13,7 @@
 class Response < ActiveRecord::Base
   belongs_to :issue
   belongs_to :user
+  validates_presence_of :description, message: "Please enter a reply"
 
   def course
     issue.course

@@ -12,6 +12,17 @@ class ResponsesController < ApplicationController
     end
   end
 
+  # def create
+  #   @issue = Issue.new(issue_params)
+  #   @issue.user = current_user
+    
+  #   if @issue.save
+  #     redirect_to issues_path, :notice => "Posted!"
+  #   else
+  #     render :new
+  #   end
+  # end
+
 
   private
   def response_params
