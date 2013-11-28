@@ -1,10 +1,15 @@
 <%= link_to "New issue", new_issue_path, class:"btn btn-default pull-right" %>
-<ul class="button-list">
+<ul class="issues-list">
 <h1>Issues</h1>
 <% @unresolved_issues.each do |issue| %>
-<li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>
+<li><a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.titleize %> <ul class="meta-info list-inline pull-right"><li>&mdash;<%= issue_poster_name(issue) %></li> <li><span class="label label-default"><span class="glyphicon glyphicon-comment"></span> <%= pluralize(issue.responses.count, 'Reply') %></span></li></ul>
+</a>
+</li>
 <% end %>
 </ul>
+
+
+
 
 <h1>Resolved Issues</h1>
 <ul class="button-list">
