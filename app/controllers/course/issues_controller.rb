@@ -1,6 +1,6 @@
 class Course::IssuesController < ApplicationController
   before_action :set_course
-  before_action :set_issue, except: [:new]
+  before_action :set_issue, except: [:new, :create]
 
   def show
     @response = Response.new
@@ -11,9 +11,7 @@ class Course::IssuesController < ApplicationController
   end
 
   def create
-    @issue = Issue.new(issue_params)
-    @issue.user = current_user
-    @issue.course = @course
+    @issue = @course.add_issue(current_user, issue_params)
 
     if @issue.save
       redirect_to @course, :notice => "Added an issue!"
