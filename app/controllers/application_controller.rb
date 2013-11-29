@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :current_course
   before_action :require_login
 
   def require_login
@@ -15,5 +16,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(:id => session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+
+  def current_course
+      @current_course ||= Course.first
+  end
+  helper_method :current_course
 
 end

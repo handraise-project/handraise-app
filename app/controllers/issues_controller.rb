@@ -4,8 +4,6 @@ class IssuesController < ApplicationController
   def index
     #TODO: eager load this
    #  @issues = Issue.all
-    @course = Course.find(1)
-
     @unresolved_issues = Issue.where("resolved = 0")
     @resolved_issues = Issue.where("resolved = 1")
   end
