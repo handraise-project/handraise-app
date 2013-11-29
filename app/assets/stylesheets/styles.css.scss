@@ -1,6 +1,5 @@
-//VARIABLES
-// ----------------------------
-$light-gray:    #c7c9cd;
+@import "variables";
+@import "mixins";
 
 // APP BRAND
 // ----------------------------
@@ -18,6 +17,16 @@ $light-gray:    #c7c9cd;
       bottom: 0;
       left:40px;
     }
+}
+
+// GRAVATAR
+// ----------------------------
+
+.gravatar {
+  border: 1px solid #fefefe;
+  width: 20px;
+  height: 20px;
+  @include roundcorners(5px);
 }
 
 
