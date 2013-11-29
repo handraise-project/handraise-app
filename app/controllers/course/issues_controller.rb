@@ -39,10 +39,6 @@ class Course::IssuesController < ApplicationController
     redirect_to @course, :notice => "Resolved!"
   end
 
-  def add_response
-    throw params
-  end
-
   private
   def set_issue
     @issue = Issue.find_by(:id => params[:id])
