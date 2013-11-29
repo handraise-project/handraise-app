@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user 
       session[:user_id] = user.id
       session[:token] = auth_hash[:credentials][:token]
-      redirect_to issues_path, notice: "Signed in"
+      redirect_to root_path, notice: "Signed in"
     end
   end
 
