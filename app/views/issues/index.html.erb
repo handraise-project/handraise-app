@@ -9,11 +9,13 @@
         <li><%= issue_poster_name(issue) %>,</li>
         <li><%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago</li>
         <li>&nbsp;&nbsp;</li>
-        <li><span class="label label-default">
+        <% if issue.responses.count > 0 %>
+         <li><span class="label label-default">
               <span class="glyphicon glyphicon-comment">
               </span>
                <%= pluralize(issue.responses.count, 'Reply') %>
-            </span></li>
+          </span></li>
+        <% end %>
       </ul>
       </div>
       </a>
