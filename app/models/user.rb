@@ -19,7 +19,14 @@ class User < ActiveRecord::Base
   has_many :responses
 
   #listed by their github username
-  COURSE_INSTRUCTORS = ["ruby-bob-003"]
+  #TODO: move this into db and/or more secure/robust solution
+  COURSE_INSTRUCTORS = [
+    "ruby-bob-003",
+    "jongrover",
+    "spencer1248",
+    "scottcreynolds",
+    "aviflombaum"
+  ]
 
   def self.find_or_create_by_omniauth(auth)
     User.find_by(:provider => auth["provider"], :uid => auth["uid"]) || User.create_from_omniauth(auth)
