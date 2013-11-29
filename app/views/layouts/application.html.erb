@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Handraise</title>
+  <title><%= @course.name %> - Handraise App</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -18,7 +18,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button><a href="<%= root_path %>" title="Handraise" class="navbar-brand"><%= image_tag("handraise_noun_project_12043_gray.svg", :alt => "Handraise icon", :size => "25x25", class:"app-brand") %> <div class="app-name">Handraise</div></a>
+      </button><a href="<%= root_path %>" title="<%= @course.name %>" class="navbar-brand"><%= image_tag("handraise_noun_project_12043_gray.svg", :alt => "Handraise icon", :size => "25x25", class:"app-brand") %> <div class="app-name"><%= @course.name %></div></a>
     </div><!--/.navbar-header -->
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
