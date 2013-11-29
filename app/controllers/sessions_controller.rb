@@ -11,8 +11,15 @@ class SessionsController < ApplicationController
     if user 
       session[:user_id] = user.id
       session[:token] = auth_hash[:credentials][:token]
-      redirect_to root_path, notice: "Signed in"
+
+      if User.is_admin?(user)
+        user.admin = true
+        redirect_to root_path, notice: "Signed in as an instructor"
+      else
+        redirect_to root_path, notice: "Signed in"
+      end
     end
+
   end
 
   def destroy

@@ -20,8 +20,8 @@ course = Course.create(:name => "Ruby 003")
 
 student1 = FactoryGirl.create(:student)
 student2 = FactoryGirl.create(:student)
-instructor1 = FactoryGirl.create(:instructor)
-instructor2 = FactoryGirl.create(:instructor)
+# instructor1 = FactoryGirl.create(:instructor)
+# instructor2 = FactoryGirl.create(:instructor)
 
 
 issue1 = FactoryGirl.build(:issue)

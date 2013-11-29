@@ -4,7 +4,7 @@
 #
 #  id             :integer          not null, primary key
 #  name           :string(255)
-#  permissions    :integer          default(0)
+#  admin          :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
 #  uid            :string(255)
@@ -17,6 +17,9 @@
 class User < ActiveRecord::Base
   has_many :issues
   has_many :responses
+
+  #listed by their github username
+  COURSE_INSTRUCTORS = ["ruby-bob-003"]
 
   def self.find_or_create_by_omniauth(auth)
     User.find_by(:provider => auth["provider"], :uid => auth["uid"]) || User.create_from_omniauth(auth)
@@ -36,6 +39,11 @@ class User < ActiveRecord::Base
 
   def display_name
     self.name || self.github_name
+  end
+
+  def self.is_admin?(user)
+    true if User::COURSE_INSTRUCTORS.include? user.github_name
+    #  auth_hash[:info][:nickname] != nil && 
   end
   
 end
