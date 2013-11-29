@@ -7,4 +7,9 @@ class Issue < ActiveRecord::Base
   def resolved?
     self.resolved > 0 
   end
+
+  def resolve!
+    self.resolved = 1
+    self.save
+  end
 end

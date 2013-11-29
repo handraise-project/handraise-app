@@ -34,8 +34,7 @@ class Course::IssuesController < ApplicationController
   end
 
   def resolve
-    @issue.update(:resolved => 1)
-    @issue.save
+    @issue.resolve!
     redirect_to @course, :notice => "Resolved!"
   end
 
