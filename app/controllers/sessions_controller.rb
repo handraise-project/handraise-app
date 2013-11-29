@@ -11,9 +11,8 @@ class SessionsController < ApplicationController
     if user 
       session[:user_id] = user.id
       session[:token] = auth_hash[:credentials][:token]
-
-      if User.is_admin?(user)
-        user.admin = true
+            
+      if user.admin
         redirect_to root_path, notice: "Signed in as an instructor"
       else
         redirect_to root_path, notice: "Signed in"

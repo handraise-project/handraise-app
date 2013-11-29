@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
       user.github_name = auth["info"]["nickname"]
       user.email = auth["info"]["email"]
       user.image_gravatar = auth["info"]["image"]
+      user.admin = true if User::COURSE_INSTRUCTORS.include? auth["info"]["nickname"]
     end
   end 
 
@@ -48,9 +49,9 @@ class User < ActiveRecord::Base
     self.name || self.github_name
   end
 
-  def self.is_admin?(user)
-    true if User::COURSE_INSTRUCTORS.include? user.github_name
-    #  auth_hash[:info][:nickname] != nil && 
-  end
+  # def is_admin?
+  #   true if User::COURSE_INSTRUCTORS.include? auth_hash[:info][:nickname].strip
+  #   #  auth_hash[:info][:nickname] != nil && 
+  # end
   
 end

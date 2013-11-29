@@ -1,4 +1,6 @@
+<% if !current_user.admin %>
 <%= link_to "New issue", new_issue_path, class:"btn btn-default pull-right" %>
+<% end %>
 <h1>Issues</h1>
 <ul class="issues-list">
   <% @unresolved_issues.each do |issue| %>
