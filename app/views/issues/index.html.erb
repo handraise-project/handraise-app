@@ -1,5 +1,8 @@
 <% if current_user.admin %>
 <h1><%= current_user.name%>'s queue</h1>
+<% if @instructor_queue.count == 0 %>
+  <p>There are currently no items in your queue.</p>
+<% else %>
 <ul class="issues-list">
   <% @instructor_queue.each do |issue| %>
   <li>
@@ -21,6 +24,7 @@
   </li>
   <% end %>
 </ul>
+<% end %>
 
 <% else %>
 <%= link_to "New issue", new_issue_path, class:"btn btn-default pull-right" %>
