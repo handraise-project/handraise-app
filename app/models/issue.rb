@@ -14,4 +14,10 @@ class Issue < ActiveRecord::Base
     self.resolved = 1
     self.save
   end
+
+  def add_response(user,response_hash)
+    response = self.responses.build(response_hash)
+    response.user = user
+    response
+  end
 end
