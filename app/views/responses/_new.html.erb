@@ -1,6 +1,6 @@
 <%= form_for [@issue, @response], :html => {:role => "form"} do |f| %>
 <div class="form-group">
-  <%= f.text_area :description, class:"form-control reply-description", placeholder:"Add a reply..."  %>
+  <%= f.text_area :description, class:"form-control reply-description", placeholder:"#{ display_name(current_user)}, add a reply..."  %>
   <p class="errors"><%= @response.errors.messages[:description][0] %></p>
   </div>
   <%= f.submit "Reply", class:"btn btn-primary reply-submit" %>
