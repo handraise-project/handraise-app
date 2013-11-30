@@ -52,10 +52,11 @@
   </li>
   <% end %>
 </ul>
-
+<% if @resolved_issues.count > 0 %>
 <h1>Archived Issues</h1>
 <ul class="button-list">
   <% @resolved_issues.each do |issue| %>
   <li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>
   <% end %>
 </ul>
+<% end %>
