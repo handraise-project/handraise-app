@@ -48,10 +48,5 @@ class User < ActiveRecord::Base
   def display_name
     self.name || self.github_name
   end
-
-  # def is_admin?
-  #   true if User::COURSE_INSTRUCTORS.include? auth_hash[:info][:nickname].strip
-  #   #  auth_hash[:info][:nickname] != nil && 
-  # end
   
 end

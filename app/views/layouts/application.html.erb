@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= "#{current_course.name} - " if current_course %>Handraise App</title>
+  <title><%= "#{current_course.name} - " if current_course %> Issue Queue</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -18,11 +18,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button><a href="<%= root_path %>" class="navbar-brand"><%= image_tag("handraise_noun_project_12043_gray.svg", :alt => "Handraise icon", :size => "25x25", class:"app-brand") %> <div class="app-name"><% if current_course %>
-          <%= current_course.name %>
-        <% else %>
-         Handraise
-        <% end %>
+      </button><a href="<%= root_path %>" class="navbar-brand"><%= image_tag("handraise_noun_project_12043_gray.svg", :alt => "Handraise icon", :size => "25x25", class:"app-brand") %> <div class="app-name">
+     <%= "#{current_course.name} - " if current_course %> Issue Queue
         </div></a>
     </div><!--/.navbar-header -->
     <div class="navbar-collapse collapse">
