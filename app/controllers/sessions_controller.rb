@@ -17,11 +17,12 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:token] = nil
     redirect_to login_path, notice: "Signed out."
   end
 
   protected
-    def auth_hash
-      request.env['omniauth.auth']
-    end
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 end

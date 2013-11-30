@@ -6,6 +6,7 @@ describe Issue do
 
     before :each do 
       @course = FactoryGirl.create(:course)
+      @user = FactoryGirl.create(:user)
       @issue = @course.issues.build(:title => "My issue")
     end
 
@@ -14,7 +15,7 @@ describe Issue do
     end
 
     it "has many responses" do 
-      @response = @issue.responses.build(:description => "Stuff isn't working")
+      @response = @issue.add_response(@user, :description => "Stuff isn't working")
       @response.save
       expect(@issue.responses.first).to eq @response
     end

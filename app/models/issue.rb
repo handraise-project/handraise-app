@@ -3,6 +3,8 @@ class Issue < ActiveRecord::Base
   belongs_to :course
   has_many :responses
   validates_presence_of :title, message: "Issues Must Have A Title."
+  scope :resolved, -> { where("resolved = 1") }
+  scope :unresolved, -> { where("resolved = 0") }
 
   def resolved?
     self.resolved > 0 

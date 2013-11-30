@@ -20,8 +20,8 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @unresolved_issues = @course.issues.where("resolved = 0")
-    @resolved_issues = @course.issues.where("resolved = 1")
+    @unresolved_issues = @course.issues.unresolved
+    @resolved_issues = @course.issues.resolved
   end
 
   def edit

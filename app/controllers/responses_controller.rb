@@ -2,8 +2,7 @@ class ResponsesController < ApplicationController
   before_filter :set_issue
 
   def create
-    @response = @issue.responses.build(response_params) 
-    @response.user = current_user if current_user
+    @response = @issue.add_response(current_user, response_params)
 
     if @response.save
       redirect_to course_issue_path(@issue.course, @issue), :notice => "Posted!"
