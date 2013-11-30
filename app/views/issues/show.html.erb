@@ -1,12 +1,14 @@
 <h2><%= @issue.title.titleize %></h2>
 <p><%= auto_link(@issue.description) %></p>
 <ul class="pull-right inline-list">
-  <% if current_user.id == @issue.user_id || current_user.admin %>
+  <% if current_user.id == @issue.user_id %>
   <li><a class="btn btn-default btn-xs" href="<%= edit_issue_path(@issue) %>" role="button", class:"btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</a></li>
 <% end %>
+<% if current_user.admin %>
+  <li><a class="btn btn-default btn-xs" href="<%= edit_issue_path(@issue) %>" role="button", class:"btn btn-default">Add to my queue <span class="glyphicon glyphicon-plus-sign"></span></a></li>
+<% end %>
 <% if can_see_resolve_button?(@issue) %>
-<li>
-<%= link_to "Mark as resolved", resolve_path(@issue), class:"btn btn-default btn-xs" %>
+<li><a class="btn btn-default btn-xs" href="<%= resolve_path(@issue) %>" role="button", class:"btn btn-default">Archive <%= image_tag("archive_noun_project_svg_14744.svg", :alt => "Archive icon", :size => "12x12", style:"margin-top:-3px;") %> </a>
 </li>
 <% end %>
 </ul>
