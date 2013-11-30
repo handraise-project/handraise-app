@@ -21,10 +21,10 @@
   <li><%= issue_poster_name(@issue) %></li>
   <li><%= time_ago_in_words(@issue.created_at, :seconds => true ) %> ago</li>
   </ul>
-  
-<% if @issue.responses.any? %>
+
 <div class="issue-replies">
 <h3>Replies</h3> 
+<% if @issue.responses.any? %>
   <ul class="no-bullets">
     <% @issue.responses.each do |response| %>
       <li>
