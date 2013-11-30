@@ -6,7 +6,7 @@
 <ul class="issues-list">
   <% @instructor_queue.each do |issue| %>
   <li>
-    <a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title %>
+    <a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.capitalize %>
       <div class="pull-right">
         <ul class="meta-info">
           <li><%= issue_poster_name(issue) %>,</li>
