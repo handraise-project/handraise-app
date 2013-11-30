@@ -52,7 +52,8 @@ issue3 = FactoryGirl.build(:issue)
 issue3.user_id = student3.id
 issue3.title = "undefined method `permissions=' when trying to run rake db:seed"
 issue3.description = <<-END_LONG_DESCRIPTION
-  this is the output we're getting: rake db:seed --trace ** Invoke db:seed (first_time)
+  this is the output we're getting:
+  rake db:seed --trace ** Invoke db:seed (first_time)
   ** Execute db:seed
   ** Invoke db:abort_if_pending_migrations (first_time)
   ** Invoke environment (first_time)
@@ -68,9 +69,9 @@ issue3 = FactoryGirl.build(:anonymous_issue)
 issue3.user_id = student3.id
 issue3.title = "Sinatra routing error"
 issue3.description = <<-END_LONG_DESCRIPTION
-  I have just setup Sinatra v1.1.0 inside my rails (v3.0.1) app. But I can't invoke any routes that are more than 1 level deep, meaning this works - http://localhost/customer/3,
-
-but this one does not work - http://localhost/customer/3/edit and I get a "Routing Error"
+I have just setup Sinatra v1.1.0 inside my rails (v3.0.1) app. But I can't invoke any routes that are more than 1 level deep.
+This works - http://localhost/customer/3
+But this one does not work - http://localhost/customer/3/edit and I get a "Routing Error"
 END_LONG_DESCRIPTION
 issue3.created_at = random_recent_past
 issue3.save
