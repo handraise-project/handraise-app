@@ -1,11 +1,10 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, :only => [:edit, :update, :show, :resolved]
+  before_action :set_issue, :only => [:edit, :update, :show, :resolved, :add_to_queue]
 
   def index
     #TODO: eager load this
-   #  @issues = Issue.all
-#
- #  @instructor_queue = Issue.where()
+ 
+    @instructor_queue = Issue.where("instructor_id = ?", current_user.id)
     @unresolved_issues = Issue.where("resolved = 0")
     @resolved_issues = Issue.where("resolved = 1")
   end
@@ -35,7 +34,6 @@ class IssuesController < ApplicationController
   end
 
   def show
-    #@issue_with_links = auto_link(@issue, :link => :urls)
     @response = Response.new
   end
 
@@ -45,6 +43,12 @@ class IssuesController < ApplicationController
       @issue.save
     end
     redirect_to issues_path, :notice => "Resolved!"
+  end
+
+  def add_to_queue
+      @issue.instructor_id = current_user.id
+      @issue.save 
+    redirect_to issues_path, :notice => "Added to #{current_user.name}'s queue"
   end
 
   private
