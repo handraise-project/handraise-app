@@ -27,33 +27,46 @@
 <% end %>
 
 <% else %>
-<%= link_to "New issue", new_issue_path, class:"btn btn-default pull-right" %>
+  <div class="row list-header">
+    <div class="col-sm-12">
+      <%= link_to "New issue", new_issue_path, class:"btn btn-default pull-right action-button" %>
+      <h1>Open Issues</h1>
+    </div>
+  </div>
 <% end %>
-<h1>Open Issues</h1>
-<ul class="issues-list">
-  <% @unresolved_issues.each do |issue| %>
-  <li>
-    <a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.titleize %>
-      <div class="pull-right">
-        <ul class="meta-info">
-          <li><%= issue_poster_name(issue) %>,</li>
-          <li><%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago</li>
-          <li>&nbsp;&nbsp;</li>
-          <% if issue.responses.count > 0 %>
-          <li><span class="label label-default">
-            <span class="glyphicon glyphicon-comment">
-            </span>
-            <%= pluralize(issue.responses.count, 'Reply') %>
-          </span></li>
-          <% end %>
-        </ul>
-      </div>
-    </a>
-  </li>
-  <% end %>
-</ul>
+
+<div class="row">
+  <div class="col-sm-12">
+    <ul class="issues-list">
+      <% @unresolved_issues.each do |issue| %>
+      <li>
+        <a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.titleize %>
+          <div class="pull-right">
+            <ul class="meta-info">
+              <li><%= issue_poster_name(issue) %>,</li>
+              <li><%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago</li>
+              <li>&nbsp;&nbsp;</li>
+              <% if issue.responses.count > 0 %>
+              <li><span class="label label-default">
+                <span class="glyphicon glyphicon-comment">
+                </span>
+                <%= pluralize(issue.responses.count, 'Reply') %>
+              </span></li>
+              <% end %>
+            </ul>
+          </div>
+        </a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <% if @resolved_issues.count > 0 %>
-<h1>Archived Issues</h1>
+<div class="row list-header">
+    <div class="col-sm-12">
+      <h1>Archived Issues</h1>
+    </div>
+  </div>
 <ul class="button-list">
   <% @resolved_issues.each do |issue| %>
   <li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", issue %></li>

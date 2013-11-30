@@ -1,4 +1,8 @@
-<h2><%= @issue.title %></h2>
+<div class="row list-header">
+  <div class="col-sm-12">
+    <h1><%= @issue.title %></h1>
+  </div>
+</div>
 <p><%= auto_link(simple_format(@issue.description)) %></p>
 <ul class="pull-right inline-list">
   <% if current_user.id == @issue.user_id %>
@@ -20,10 +24,11 @@
 <ul class="inline-list meta-info">
   <li><%= issue_poster_name(@issue) %></li>
   <li><%= time_ago_in_words(@issue.created_at, :seconds => true ) %> ago</li>
-  </ul>
-
+</ul>
 <div class="issue-replies">
-<h3>Replies</h3> 
+<div class="list-header">
+  <h2>Replies</h2> 
+</div>
 <% if @issue.responses.any? %>
   <ul class="no-bullets">
     <% @issue.responses.each do |response| %>
