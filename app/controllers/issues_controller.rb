@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :set_issue, :only => [:edit, :update, :show, :resolved, :add_to_queue]
+  before_action :set_issue, :only => [:edit, :update, :show, :resolved, :add_to_queue, :remove_from_queue]
 
   def index
     #TODO: eager load this
@@ -34,6 +34,11 @@ class IssuesController < ApplicationController
   end
 
   def show
+    if @issue.instructor_id
+      @remove_from_queue
+    else
+      @add_to_queue
+    end
     @response = Response.new
   end
 
@@ -49,6 +54,12 @@ class IssuesController < ApplicationController
       @issue.instructor_id = current_user.id
       @issue.save 
     redirect_to issues_path, :notice => "Added to #{current_user.name}'s queue"
+  end
+
+  def remove_from_queue
+      @issue.instructor_id = nil
+      @issue.save 
+    redirect_to issues_path, :notice => "Issue removed from #{current_user.name}'s queue"
   end
 
   private

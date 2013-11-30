@@ -16,6 +16,7 @@ Handraise::Application.routes.draw do
 
   get 'issues/:id/resolve' => 'issues#resolved', :as => 'resolve'
   get 'issues/:id/add_to_queue' => 'issues#add_to_queue', :as => 'add_to_queue'
+  get 'issues/:id/remove_from_queue' => 'issues#remove_from_queue', :as => 'remove_from_queue'
 
   #resources :issues
   resources :users
