@@ -122,17 +122,29 @@
 // ISSUE REPLIES
 // ----------------------------
 .issue-replies {
+  font-size:12px;
+ 
   h3 {
     border-bottom: 1px solid $light-gray;
     padding-bottom: .5em;
   }
   p {
-    margin-bottom: 0;
+    margin-bottom: .5em;
+    color: $medium-gray;
   }
-  li, blockquote {
-    margin-bottom:5px;
-    font-size: smaller;
-  }
+  ul {
+
+    li {
+      padding-left: 0;
+
+      blockquote p {
+        margin-bottom:5px;
+        font-size:12px;
+        color:#000000;
+        
+      }
+    }
+   }
 }
 
 // META INFO
