@@ -171,6 +171,13 @@
 .errors { //this is for custom error messages in forms.
   color: red;
 }
+.help-text {
+  color:$light-gray;
+  font-size: 11px;
+  .code-sample {
+    font-family: monospace;
+  }
+}
 
 // MEDIA QUERIES (RESPONSIVE)
 // ----------------------------
