@@ -19,5 +19,9 @@ class Issue < ActiveRecord::Base
     response = self.responses.build(response_hash)
     response.user = user
     response
+
+  def archived? #check if an issue is archived
+    self.archived
   end
+
 end

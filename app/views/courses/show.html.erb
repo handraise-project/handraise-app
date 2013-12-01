@@ -3,14 +3,14 @@
 <%= link_to "Create a new issue", new_course_issue_path(@course) %>
 <ul class="button-list">
 <h1>Issues</h1>
-<% @unresolved_issues.each do |issue| %>
+<% @unresolved_issues.where(archived: false).each do |issue| %>
 <li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", course_issue_path(@course, issue) %></li>
 <% end %>
 </ul>
 
 <h1>Resolved Issues</h1>
 <ul class="button-list">
-<% @resolved_issues.each do |issue| %>
+<% @resolved_issues.where(archived: false).each do |issue| %>
 <li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", course_issue_path(@course, issue) %></li>
 <% end %>
 </ul>
