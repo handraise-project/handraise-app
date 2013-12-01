@@ -49,17 +49,38 @@
 
 // LOGIN VIEW
 // ----------------------------
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-left: -100px;
-   text-align: center;
-}
-.login-button {
-  max-width: 200px;
-}
 
+  .centered {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+     text-align: center;
+  }
+
+// .centered-container {
+//   display:table;
+
+//   .centered {
+//     display:table-cell;
+//     vertical-align:middle;
+//     text-align: center;
+//   }
+
+
+// }
+
+// .centered {
+//   width: 200px;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   text-align: center;
+
+//    .login-button {
+//         font-size: 1.8em;
+//         //max-width: 250px;
+//       }
+// }
 
 // GRAVATAR
 // ----------------------------
@@ -168,3 +189,25 @@
 .errors { //this is for custom error messages in forms.
   color: red;
 }
+
+// MEDIA QUERIES (RESPONSIVE)
+// ----------------------------
+
+//iPhone
+@media only screen and (max-device-width: 480px), only screen and (min-device-width: 560px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
+
+//LOGIN VIEW
+// ----------------------------
+ .centered {
+    // Offset based on size of containing block
+    //TODO - use JS to calculate this value dynamically
+    margin-left: -90px;
+
+    .login-button {
+       font-size: 1.8em;
+    }
+  }
+
+}
+
+
