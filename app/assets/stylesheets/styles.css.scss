@@ -57,31 +57,6 @@
      text-align: center;
   }
 
-// .centered-container {
-//   display:table;
-
-//   .centered {
-//     display:table-cell;
-//     vertical-align:middle;
-//     text-align: center;
-//   }
-
-
-// }
-
-// .centered {
-//   width: 200px;
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-//   text-align: center;
-
-//    .login-button {
-//         font-size: 1.8em;
-//         //max-width: 250px;
-//       }
-// }
-
 // GRAVATAR
 // ----------------------------
 
@@ -129,7 +104,7 @@
       text-decoration: none;
     }
 
-    p {
+    .meta-info {
       float: right;
     }
 
@@ -194,20 +169,37 @@
 // ----------------------------
 
 //iPhone
-@media only screen and (max-device-width: 480px), only screen and (min-device-width: 560px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (max-width: 480px) {
 
-//LOGIN VIEW
-// ----------------------------
- .centered {
-    // Offset based on size of containing block
-    //TODO - use JS to calculate this value dynamically
-    margin-left: -90px;
+  //LOGIN VIEW
+  // ----------------------------
+   .centered {
+      // Offset based on size of containing block
+      //TODO - use JS to calculate this value dynamically
+      margin-left: -90px;
 
-    .login-button {
-       font-size: 1.8em;
+      .login-button {
+         font-size: 1.8em;
+      }
     }
-  }
 
-}
+  //ISSUES LIST
+  // ----------------------------
+    .issues-list {
+    
+      li {      
+        ul.meta-info {
+          float: none;
+          padding-left:0;
+          
+          li {
+            padding-left:0;       
+          
+          }
+        }
+      }
+    }
+
+}  // end iphone
 
 

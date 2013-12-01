@@ -41,7 +41,6 @@
       <% @unresolved_issues.each do |issue| %>
       <li>
         <a href="<%= issue_path(issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.titleize %>
-          <div class="pull-right">
             <ul class="meta-info">
               <li><%= issue_poster_name(issue) %>,</li>
               <li><%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago</li>
@@ -54,7 +53,6 @@
               </span></li>
               <% end %>
             </ul>
-          </div>
         </a>
       </li>
       <% end %>
