@@ -4,4 +4,13 @@ class SiteController < ApplicationController
   def start
   end
   
+  def new_admin
+  end
+
+  def create_admin
+    user = User.find(params["user"]["user"])
+    user.admin = true
+    redirect_to '/'
+  end
+
 end
