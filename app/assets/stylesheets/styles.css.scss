@@ -1,6 +1,33 @@
 @import "variables";
 @import "mixins";
 
+
+// LISTS
+// ----------------------------
+.no-bullets {
+  list-style:none;
+  margin-left:0;
+  padding-left:0;
+
+  li {
+    padding:5px 10px;
+    margin-bottom:10px;
+  }
+}
+
+// Horizontal lists
+.inline-list {
+  list-style:none;
+    margin-left:0;
+  padding-left:0;
+  li {
+    display: inline-block;
+    border: none;
+    padding:2px 0 0 0;          
+    background-color:inherit;
+  }
+}
+
 // APP BRAND
 // ----------------------------
 
@@ -20,6 +47,20 @@
     }
 }
 
+// LOGIN VIEW
+// ----------------------------
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+   text-align: center;
+}
+.login-button {
+  max-width: 200px;
+}
+
+
 // GRAVATAR
 // ----------------------------
 
@@ -28,37 +69,6 @@
   width: 20px;
   height: 20px;
   @include roundcorners(5px);
-}
-
-
-
-// LOGIN VIEW
-// ----------------------------
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  //margin-top: -40px;
-  margin-left: -100px;
-   text-align: center;
-}
-.login-button {
-  max-width: 200px;
-}
-
-
-// LOGIN VIEW
-// ----------------------------
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  //margin-top: -40px;
-  margin-left: -100px;
-   text-align: center;
-}
-.login-button {
-  max-width: 200px;
 }
 
 
@@ -83,55 +93,36 @@
   margin-left:0;
   padding-left:0;
 
-    li {
-      padding:5px 10px;
-      margin-bottom:5px; 
-      border:1px solid #eeeeee;
-      background-color: #ffffff;
-      cursor:pointer;
+  li {
+    padding:5px 10px;
+    margin-bottom:5px; 
+    border:1px solid #eeeeee;
+    background-color: #ffffff;
+    cursor:pointer;
 
-      &:hover {
-        background-color:#f5f5f5;
-      }
+    &:hover {
+      background-color:#f5f5f5;
+    }
 
-      a:hover {
-        text-decoration: none;
-      }
+    a:hover {
+      text-decoration: none;
+    }
 
-      p {
-        float: right;
-      }
+    p {
+      float: right;
+    }
 
-      // .margin-left {
-      //   margin-left:5px;
-      // }
-
-      ul {
-        list-style:none;
-        li {
-          display: inline-block;
-          border: none;
-          padding:2px 0 0 0;          
-          background-color:inherit;
-        }
+    ul {
+      list-style:none;
+      li {
+        display: inline-block;
+        border: none;
+        padding:2px 0 0 0;          
+        background-color:inherit;
       }
     }
-}
-
-// INLINE (HORIZONTAL) LIST
-// ----------------------------
-.inline-list {
-  list-style:none;
-    margin-left:0;
-  padding-left:0;
-  li {
-    display: inline-block;
-    border: none;
-    padding:2px 0 0 0;          
-    background-color:inherit;
   }
 }
-
 
 // ISSUE REPLIES
 // ----------------------------
@@ -165,24 +156,11 @@
 }
 
 // META INFO
-// For example: info about an issue, such as author or date-time posted
+// Eg info about an issue, such as author or date-time posted
 // ----------------------------
 .meta-info {
   font-size:x-small;
   color:$light-gray;  
-}
-
-// LISTS
-// ----------------------------
-.no-bullets {
-  list-style:none;
-  margin-left:0;
-  padding-left:0;
-
-  li {
-    padding:5px 10px;
-    margin-bottom:10px;
-  }
 }
 
 // FORMS
