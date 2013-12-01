@@ -4,7 +4,7 @@
 #
 #  id             :integer          not null, primary key
 #  name           :string(255)
-#  permissions    :integer          default(0)
+#  admin          :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
 #  uid            :string(255)
@@ -17,6 +17,16 @@
 class User < ActiveRecord::Base
   has_many :issues
   has_many :responses
+
+  #listed by their github username
+  #TODO: move this into db and/or more secure/robust solution
+  COURSE_INSTRUCTORS = [
+    "ruby-bob-003",
+    "jongrover",
+    "spencer1248",
+    "scottcreynolds",
+    "aviflombaum"
+  ]
 
   def self.find_or_create_by_omniauth(auth)
     User.find_by(:provider => auth["provider"], :uid => auth["uid"]) || User.create_from_omniauth(auth)
@@ -31,6 +41,7 @@ class User < ActiveRecord::Base
       user.github_name = auth["info"]["nickname"]
       user.email = auth["info"]["email"]
       user.image_gravatar = auth["info"]["image"]
+      user.admin = true if User::COURSE_INSTRUCTORS.include? auth["info"]["nickname"]
     end
   end 
 

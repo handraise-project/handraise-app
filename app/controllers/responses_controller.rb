@@ -6,7 +6,7 @@ class ResponsesController < ApplicationController
     @response.user = current_user if current_user
 
     if @response.save
-      redirect_to issue_path(@issue), :notice => "Posted!"
+      redirect_to issue_path(@issue), :notice => "Reply Posted!"
     else
       render :new
     end

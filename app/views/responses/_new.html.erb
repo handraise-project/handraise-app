@@ -1,3 +1,4 @@
+<p><%= image_tag(current_user.image_gravatar, :alt => "Gravatar", class:"gravatar") %> <%= display_name(current_user)%>:</p>
 <%= form_for [@issue, @response], :html => {:role => "form"} do |f| %>
 <div class="form-group">
   <%= f.text_area :description, class:"form-control reply-description", placeholder:"Add a reply..."  %>

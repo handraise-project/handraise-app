@@ -1,12 +1,22 @@
-<h2><%= @issue.title.titleize %></h2>
-<p><%= auto_link(@issue.description) %></p>
+<div class="row list-header">
+  <div class="col-sm-12">
+    <h1><%= @issue.title.capitalize %></h1>
+  </div>
+</div>
+<p><%= auto_link(simple_format(@issue.description)) %></p>
 <ul class="pull-right inline-list">
-  <% if current_user.id == @issue.user_id || current_user.permissions > 0 %>
+  <% if current_user.id == @issue.user_id %>
   <li><a class="btn btn-default btn-xs" href="<%= edit_issue_path(@issue) %>" role="button", class:"btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</a></li>
 <% end %>
+<% if current_user.admin %>
+  <% if @issue.instructor_id %>
+    <li><a class="btn btn-default btn-xs" href="<%= remove_from_queue_path(@issue) %>" role="button", class:"btn btn-default">Remove from my queue <span class="glyphicon glyphicon-minus-sign"></span></a></li>
+  <% else %>
+    <li><a class="btn btn-default btn-xs" href="<%= add_to_queue_path(@issue) %>" role="button", class:"btn btn-default">Add to my queue <span class="glyphicon glyphicon-plus-sign"></span></a></li>
+  <% end %>
+<% end %>
 <% if can_see_resolve_button?(@issue) %>
-<li>
-<%= link_to "Mark as resolved", resolve_path(@issue), class:"btn btn-default btn-xs" %>
+<li><a class="btn btn-default btn-xs" href="<%= resolve_path(@issue) %>" role="button", class:"btn btn-default">Archive <%= image_tag("archive_noun_project_svg_14744.svg", :alt => "Archive icon", :size => "12x12", style:"margin-top:-3px;") %> </a>
 </li>
 <% end %>
 </ul>
@@ -14,24 +24,26 @@
 <ul class="inline-list meta-info">
   <li><%= issue_poster_name(@issue) %></li>
   <li><%= time_ago_in_words(@issue.created_at, :seconds => true ) %> ago</li>
-  </ul>
-  
-<% if @issue.responses.any? %>
+</ul>
 <div class="issue-replies">
-<h3>Replies</h3> 
+<div class="list-header">
+  <h2>Replies</h2> 
+</div>
+<% if @issue.responses.any? %>
   <ul class="no-bullets">
     <% @issue.responses.each do |response| %>
       <li>
-      <p class="meta-info"><%= display_name(response.user)%>, <%= time_ago_in_words(response.created_at, :seconds => true ) %> ago:</p>
+      <p><%= image_tag(current_user.image_gravatar, :alt => "Gravatar", class:"gravatar") %> <%= display_name(response.user)%>, <%= time_ago_in_words(response.created_at, :seconds => true ) %> ago:</p>
       <blockquote>
-        <%= auto_link(response.description) %>
+        <%= auto_link(simple_format(response.description)) %>
       </blockquote>
       </li>
     <% end %>
   </ul>
 <% end %>
-</div>
 <%= render "responses/new" %>
+</div>
+
 
 <%#= link_to "Respond to this issue", new_issue_response_path(@issue) %>
 

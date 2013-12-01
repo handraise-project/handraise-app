@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def current_course
+      @current_course ||= Course.first
+  end
+  helper_method :current_course
+
 end

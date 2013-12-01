@@ -4,7 +4,7 @@
 #
 #  id             :integer          not null, primary key
 #  name           :string(255)
-#  permissions    :integer          default(0)
+#  admin          :boolean          default(FALSE)
 #  created_at     :datetime
 #  updated_at     :datetime
 #  uid            :string(255)

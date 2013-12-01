@@ -1,6 +1,32 @@
-//VARIABLES
+@import "variables";
+@import "mixins";
+
+
+// LISTS
 // ----------------------------
-$light-gray:    #c7c9cd;
+.no-bullets {
+  list-style:none;
+  margin-left:0;
+  padding-left:0;
+
+  li {
+    padding:5px 10px;
+    margin-bottom:10px;
+  }
+}
+
+// Horizontal lists
+.inline-list {
+  list-style:none;
+    margin-left:0;
+  padding-left:0;
+  li {
+    display: inline-block;
+    border: none;
+    padding:2px 0 0 0;          
+    background-color:inherit;
+  }
+}
 
 // APP BRAND
 // ----------------------------
@@ -17,18 +43,16 @@ $light-gray:    #c7c9cd;
       position: absolute;
       bottom: 0;
       left:40px;
+      width: 200px;
     }
 }
 
-
-
 // LOGIN VIEW
 // ----------------------------
 .centered {
   position: fixed;
   top: 50%;
   left: 50%;
-  //margin-top: -40px;
   margin-left: -100px;
    text-align: center;
 }
@@ -37,113 +61,106 @@ $light-gray:    #c7c9cd;
 }
 
 
-// LOGIN VIEW
+// GRAVATAR
 // ----------------------------
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  //margin-top: -40px;
-  margin-left: -100px;
-   text-align: center;
-}
-.login-button {
-  max-width: 200px;
+
+.gravatar {
+  border: 1px solid #fefefe;
+  width: 20px;
+  height: 20px;
+  @include roundcorners(5px);
 }
 
 
 // ISSUES LIST
 // ----------------------------
+
+.list-header, .form-header {
+  padding: 8px 0;
+  h1 {
+    margin-top: 5px;
+    font-size:  16px;
+  }
+   h2 {
+    font-size:  16px;
+  }
+  .action-button {
+    margin-top: -5px;
+  }
+}
 .issues-list {
-  list-style:none;
-  margin-left:0;
-  padding-left:0;
-
-    li {
-      padding:5px 10px;
-      margin-bottom:5px; 
-      border:1px solid #eeeeee;
-      background-color: #ffffff;
-      cursor:pointer;
-
-      &:hover {
-        background-color:#f5f5f5;
-      }
-
-      a:hover {
-        text-decoration: none;
-      }
-
-      p {
-        float: right;
-      }
-
-      // .margin-left {
-      //   margin-left:5px;
-      // }
-
-      ul {
-        list-style:none;
-        li {
-          display: inline-block;
-          border: none;
-          padding:2px 0 0 0;          
-          background-color:inherit;
-        }
-      }
-    }
-}
-
-// INLINE (HORIZONTAL) LIST
-// ----------------------------
-.inline-list {
-  list-style:none;
-    margin-left:0;
-  padding-left:0;
-  li {
-    display: inline-block;
-    border: none;
-    padding:2px 0 0 0;          
-    background-color:inherit;
-  }
-}
-
-
-// ISSUE REPLIES
-// ----------------------------
-.issue-replies {
-  h3 {
-    border-bottom: 1px solid $light-gray;
-    padding-bottom: .5em;
-  }
-  p {
-    margin-bottom: 0;
-  }
-  li, blockquote {
-    margin-bottom:5px;
-    font-size: smaller;
-  }
-}
-
-// META INFO
-// For example: info about an issue, such as author or date-time posted
-// ----------------------------
-.meta-info {
-  font-size:x-small;
-  color:$light-gray;  
-}
-
-// LISTS
-// ----------------------------
-.no-bullets {
   list-style:none;
   margin-left:0;
   padding-left:0;
 
   li {
     padding:5px 10px;
-    margin-bottom:10px;
+    margin-bottom:5px; 
+    border:1px solid #eeeeee;
+    background-color: #ffffff;
+    cursor:pointer;
+
+    &:hover {
+      background-color:#f5f5f5;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    p {
+      float: right;
+    }
+
+    ul {
+      list-style:none;
+      li {
+        display: inline-block;
+        border: none;
+        padding:2px 0 0 0;          
+        background-color:inherit;
+      }
+    }
   }
+}
+
+// ISSUE REPLIES
+// ----------------------------
+.issue-replies {
+  font-size:12px;
+ 
+  h2 {
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: .5em;
+    margin-bottom: 0;
+  }
+  p {
+    margin-bottom: .5em;
+    color: $medium-gray;
+  }
+  ul {
+
+    li {
+      padding-left: 0;
+
+      blockquote {
+        margin-bottom:5px;
+        p {
+          margin-bottom:5px;
+          font-size:12px;
+          color:#000000;
+        }
+      }
+    }
+   }
+}
+
+// META INFO
+// Eg info about an issue, such as author or date-time posted
+// ----------------------------
+.meta-info {
+  font-size:x-small;
+  color:$light-gray;  
 }
 
 // FORMS
