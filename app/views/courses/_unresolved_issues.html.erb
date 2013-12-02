@@ -1,0 +1,14 @@
+<ul class="issues-list">
+  <% @unresolved_issues.each do |issue| %>
+  <li>
+    <a href="<%= course_issue_path(@course, issue) %>" title="<%= issue.title.titleize %>"><span class="issue-title"><%= issue.title.capitalize %></span>
+        <ul class="meta-info">
+          <%= issue_name_and_time_ago(issue) %>
+          <% if issue.responses.count > 0 %>
+            <%= render 'issue_responses_reply_count', :issue => issue %>
+          <% end %>
+        </ul>
+    </a>
+  </li>
+  <% end %>
+</ul>

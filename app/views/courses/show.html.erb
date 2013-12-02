@@ -1,74 +1,7 @@
 <% if current_user.admin %>
-<h1><%= display_name(current_user) %>'s Queue</h1>
-<% if @instructor_queue.count == 0 %>
-  <p>There are currently no items in your queue.</p>
-<% else %>
-<ul class="issues-list">
-  <% @instructor_queue.each do |issue| %>
-  <li>
-    <a href="<%= course_issue_path(@course, issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.capitalize %>
-      <div class="pull-right">
-        <ul class="meta-info">
-          <li><%= issue_poster_name(issue) %>,</li>
-          <li><%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago</li>
-          <li>&nbsp;&nbsp;</li>
-          <% if issue.responses.count > 0 %>
-          <li><span class="label label-default">
-            <span class="glyphicon glyphicon-comment"></span>
-            <%= pluralize(issue.responses.count, 'Reply') %></span>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </a>
-  </li>
-  <% end %>
-</ul>
-<% end %>
+  <%= render 'instructor_queue' %>
 <% end %>
 
-<div class="row list-header">
-    <div class="col-sm-12">
-      <% if !current_user.admin %>
-      <%= link_to "New issue", new_course_issue_path(@course), class:"btn btn-default pull-right action-button" %>
-      <% end %>
-      <h1>Open Issues</h1>
-    </div>
-  </div>
+<%= render 'new_and_unresolved' %>
 
-<div class="row">
-  <div class="col-sm-12">
-    <ul class="issues-list">
-      <% @unresolved_issues.each do |issue| %>
-      <li>
-        <a href="<%= course_issue_path(@course, issue) %>" title="<%= issue.title.titleize %>"><span class="issue-title"><%= issue.title.capitalize %></span>
-            <ul class="meta-info">
-              <li><%= issue_poster_name(issue) %>,</li>
-              <li><%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago</li>
-              <li>&nbsp;&nbsp;</li>
-              <% if issue.responses.count > 0 %>
-              <li><span class="label label-default">
-                <span class="glyphicon glyphicon-comment">
-                </span>
-                <%= pluralize(issue.responses.count, 'Reply') %>
-              </span></li>
-              <% end %>
-            </ul>
-        </a>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<% if @resolved_issues.count > 0 %>
-<div class="row list-header">
-    <div class="col-sm-12">
-      <h1>Resolved Issues</h1>
-    </div>
-  </div>
-<ul class="button-list">
-  <% @resolved_issues.each do |issue| %>
-  <li><%= link_to "#{issue_poster_name(issue)}: #{issue.title.titleize} (#{pluralize(issue.responses.count, 'response')})", course_issue_path(@course, issue) %></li>
-  <% end %>
-</ul>
-<% end %>
+<%= render 'resolved_issues' %>

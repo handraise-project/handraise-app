@@ -14,4 +14,7 @@ module Course::IssuesHelper
     !@issue.resolved? && (current_user == issue.user || current_user.admin)
   end
 
+  def issue_name_and_time_ago(issue)
+    content_tag(:li, "#{issue_poster_name(issue)}, #{time_ago_in_words(issue.created_at, :seconds => true )} ago")
+  end
 end

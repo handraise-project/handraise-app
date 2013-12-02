@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   def require_login
-    #redirect_to login_path unless 
+    redirect_to login_path unless 
     current_user  
   end
  
@@ -17,9 +17,5 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def current_course
-      @current_course ||= Course.first
-  end
-  helper_method :current_course
 
 end
