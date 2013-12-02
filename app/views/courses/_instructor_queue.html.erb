@@ -6,7 +6,7 @@
 
 <ul class="issues-list">
   <% @instructor_queue.each do |issue| %>
-    <%= render 'issues_in_queue', :issue => issue %>
+    <%= render 'issue_button_link', :issue => issue %>
   <% end %>
 </ul>
 <% end %>
