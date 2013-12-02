@@ -14,15 +14,7 @@
 <body>
 <%= render 'layouts/navbar' %>
 
-<div class="container">
-<% #TODO: remove this CSS hack and add a class with padding instead %>
-  <div class="row">
-    <div class="col-sm-12 padding-on-top">
-    </div>
-  </div>
-
-<% #end hack %>
-
+<div class="container padding-on-top">
   <div class="main-content">
     <% if flash[:notice] %>
       <div class="row">
