@@ -1,7 +1,7 @@
 module Course::IssuesHelper
 
   def issue_poster_name(issue)
-    if current_user.admin
+    if current_user.admin || issue.user == current_user
       display_name(issue.user)
     elsif issue.anonymous
       "Anonymous"
