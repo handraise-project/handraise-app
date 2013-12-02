@@ -46,14 +46,14 @@ class CoursesController < ApplicationController
     @course = Course.find_by(:id => params["course_id"])
     current_user.primary_course_id = params["course_id"]
     current_user.save
-    redirect_to @course
+    redirect_to @course, :notice => "Primary Course Saved!"
   end
 
   def remove_primary_course
     @course = Course.find_by(:id => params["course_id"])
     current_user.primary_course_id = nil
     current_user.save
-    redirect_to @course
+    redirect_to @course, :notice => "Primary Course Removed..."
   end
 
   private
