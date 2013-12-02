@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '4.0.1'
-gem 'sqlite3', group: :development
+gem 'sqlite3', group: :development  
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
 gem 'sass-rails', '~> 4.0.0'
