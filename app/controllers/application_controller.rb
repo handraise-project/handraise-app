@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login
 
+  http_basic_authenticate_with name: "flatiron", password: "33west26"
+
   def require_login
     redirect_to login_path unless 
     current_user  
