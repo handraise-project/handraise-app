@@ -1,0 +1,14 @@
+<h2>Archived Issues </h2>
+<ul class="issues-list">
+  <% @archived_issues.each do |issue| %>
+    <li>
+      <%= button_to course_issue_path(@course, issue), :method => "get", :title => "#{issue.title.capitalize}" do %>
+        <span class="issue-title"><%= issue.title.capitalize %></span>
+        <ul class="meta-info">
+          <%= issue_name_and_time_ago(issue) %>
+          <%= render 'issue_responses_reply_count', :count => issue.responses.count if issue.responses.count > 0 %>
+        </ul>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
