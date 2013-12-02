@@ -1,3 +1,9 @@
+<% if current_user.primary_course_id %>
+<%= button_to "Remove #{@course.name} as your primary course.", action: "remove_primary_course", course_id: @course.id %>
+<% else %>
+<%= button_to "Add #{@course.name} as your primary course.", action: "add_primary_course", course_id: @course.id %>
+<% end %>
+
 <% #if current_user.admin %>
   <%= render 'instructor_queue' %>
 <% #end %>

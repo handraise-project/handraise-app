@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201201535) do
+ActiveRecord::Schema.define(version: 20131202175954) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20131201201535) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.boolean  "admin",          default: false
+    t.boolean  "admin",             default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uid"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20131201201535) do
     t.string   "provider"
     t.string   "email"
     t.string   "image_gravatar"
+    t.integer  "primary_course_id"
   end
 
 end
