@@ -11,21 +11,8 @@
   </head>
   <body>
    <!-- Fixed navbar -->
-   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to '#', :title => "Handraise", :class => "navbar-brand" do %>
-          <%= render 'layouts/navbar' %>
-        <% end %>
-      </div><!--/.navbar-header -->
-    </div>
-  </div>
+   <%= render 'layouts/navbar' %>
+
 
   <div class="container">
    <%= yield %>
