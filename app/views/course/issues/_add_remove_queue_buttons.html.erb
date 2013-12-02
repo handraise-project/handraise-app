@@ -1,0 +1,17 @@
+  <%  if current_user == @issue.user %>
+    <%= link_to edit_course_issue_path(@course, @issue), :class => 'btn btn-default btn-xs' do %>
+      <li><span class="glyphicon glyphicon-edit"></span> Edit</li>
+    <% end %>
+  <% end %>
+
+  <% if current_user.admin %>
+    <% if @issue.instructor_id == current_user.id %>
+      <%= link_to remove_from_queue_path(@course, @issue), :class => 'btn btn-default btn-xs' do %>
+        <li><span class="glyphicon glyphicon-minus-sign"></span>Remove from my queue</li>
+      <% end %>
+    <% else %> 
+      <%= link_to add_to_queue_path(@course, @issue), :class => 'btn btn-default btn-xs' do %>
+        <li><span class="glyphicon glyphicon-plus-sign"></span>Add to my queue</li>
+          <% end %>
+      <% end %>
+  <% end %>
