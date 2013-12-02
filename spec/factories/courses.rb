@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :course do
-    name "MyString"
+    name "Flatiron Ruby 003"
   end
 end

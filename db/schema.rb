@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131130005020) do
+=======
+ActiveRecord::Schema.define(version: 20131201201535) do
+>>>>>>> add_archiving
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -29,6 +33,10 @@ ActiveRecord::Schema.define(version: 20131130005020) do
     t.boolean  "anonymous",     default: false
     t.integer  "course_id"
     t.integer  "instructor_id"
+<<<<<<< HEAD
+=======
+    t.boolean  "archived",      default: false
+>>>>>>> add_archiving
   end
 
   add_index "issues", ["course_id"], name: "index_issues_on_course_id"

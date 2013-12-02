@@ -8,10 +8,9 @@ gem 'dotenv-rails'
 gem 'faker'
 gem 'jquery-rails'
 gem 'rails_autolink'
-
+gem 'whenever', :require => false
 gem 'octokit'
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
-
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 
 group :doc do

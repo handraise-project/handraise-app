@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   def require_login
-    redirect_to login_path unless current_user  
+    #redirect_to login_path unless 
+    current_user  
   end
  
   private

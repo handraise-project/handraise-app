@@ -16,18 +16,18 @@ class SessionsController < ApplicationController
         redirect_to root_path, notice: "Signed in as an instructor"
       else
         redirect_to root_path, notice: "Signed in"
-      end
+      end 
     end
-
   end
 
   def destroy
     session[:user_id] = nil
+    session[:token] = nil
     redirect_to login_path, notice: "Signed out."
   end
 
   protected
-    def auth_hash
-      request.env['omniauth.auth']
-    end
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 end

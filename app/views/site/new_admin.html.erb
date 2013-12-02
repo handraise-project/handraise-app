@@ -1,0 +1,5 @@
+<h2> Select a User to Give Admin Permissions </h2>
+<%= form_for :user do |f| %>
+<%= f.select :user, options_for_select(users_for_select) %>
+<%= f.submit "Add Admin" %>
+<% end %>
