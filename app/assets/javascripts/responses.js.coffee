@@ -3,11 +3,11 @@
 # # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-# $(document).ready ->
-#   $(".reply-submit").attr "disabled", "disabled"
+$(document).ready ->
+  $("#add_response .reply-submit").attr "disabled", "disabled"
 
-#   $(".reply-description").keyup ->  
-#     if $(".reply-description").val().length > 0
-#       $( ".reply-submit" ).removeAttr "disabled"
-#     else
-#       $(".reply-submit").attr "disabled", "disabled"
+  $("#add_response .reply-description").keyup ->  
+    if $("#add_response .reply-description").val().length > 0
+      $( "#add_response .reply-submit" ).removeAttr "disabled"
+    else
+      $("#add_response .reply-submit").attr "disabled", "disabled"
