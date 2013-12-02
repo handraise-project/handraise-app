@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
   def show
     @unresolved_issues = @course.issues.unresolved
     @resolved_issues = @course.issues.resolved
-    @instructor_queue = Issue.where("instructor_id = ?", current_user.id)
+    @instructor_queue = Issue.in_instructor_queue(current_user)
   end
 
   def edit

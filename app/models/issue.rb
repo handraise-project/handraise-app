@@ -6,6 +6,8 @@ class Issue < ActiveRecord::Base
   scope :resolved, -> { where(:resolved => 1) }
   scope :unresolved, -> { where(:resolved => 0) }
   scope :not_queued, -> { where(:instructor_id => nil) }
+  scope :in_instructor_queue, ->(user) { where(:instructor_id => user.id) }
+  scope :archived, -> { where(:archived => true) }
 
   def resolved?
     self.resolved > 0 
