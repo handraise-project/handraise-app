@@ -21,14 +21,15 @@ ActiveRecord::Schema.define(version: 20131201201535) do
 
   create_table "issues", force: true do |t|
     t.text     "description"
-    t.integer  "resolved",    default: 0
+    t.integer  "resolved",      default: 0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.boolean  "anonymous",   default: false
+    t.boolean  "anonymous",     default: false
     t.integer  "course_id"
-    t.boolean  "archived",    default: false
+    t.integer  "instructor_id"
+    t.boolean  "archived",      default: false
   end
 
   add_index "issues", ["course_id"], name: "index_issues_on_course_id"
@@ -47,7 +48,7 @@ ActiveRecord::Schema.define(version: 20131201201535) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "permissions",    default: 0
+    t.boolean  "admin",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uid"

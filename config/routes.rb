@@ -7,8 +7,8 @@ Handraise::Application.routes.draw do
   get 'courses/:course_id/issues/:id/resolve' => 'course/issues#resolve', :as => 'resolve_issue'
   post 'courses/:course_id/issues/:id/response' => 'responses#create', :as => 'add_response'
   
-  get 'add-admin' => 'site#new_admin'#, :as => 'admin'
-  post 'add-admin' => 'site#create_admin'#, :as => 'create_admin'
+  get 'add-admin' => 'site#new_admin'
+  post 'add-admin' => 'site#create_admin'
 
   get "sessions/create"
   get "sessions/destroy"
