@@ -2,6 +2,13 @@
 @import "mixins";
 
 
+// BASE
+// ----------------------------
+.container {
+  // padding-top: 2em;
+  // padding-bottom: 2em;
+}
+
 // LISTS
 // ----------------------------
 .no-bullets {
@@ -49,17 +56,13 @@
 
 // LOGIN VIEW
 // ----------------------------
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-left: -100px;
-   text-align: center;
-}
-.login-button {
-  max-width: 200px;
-}
 
+  .centered {
+    position: fixed;
+    top: 40%;
+    left: 40%;
+     text-align: center;
+  }
 
 // GRAVATAR
 // ----------------------------
@@ -108,7 +111,7 @@
       text-decoration: none;
     }
 
-    p {
+    .meta-info {
       float: right;
     }
 
@@ -168,3 +171,60 @@
 .errors { //this is for custom error messages in forms.
   color: red;
 }
+.help-text {
+  color:$light-gray;
+  font-size: 11px;
+  .code-sample {
+    font-family: monospace;
+  }
+}
+
+// MEDIA QUERIES (RESPONSIVE)
+// ----------------------------
+
+//iPhone
+@media only screen and (max-width: 480px) {
+
+  //LOGIN VIEW
+  // ----------------------------
+   .centered {
+      // Offset based on size of containing block
+      //TODO - use JS to calculate this value dynamically
+      margin-left: -90px;
+
+      .login-button {
+         font-size: 1.8em;
+      }
+    }
+
+  //ISSUES LIST
+  // ----------------------------
+
+  .list-header {
+    h1 {
+      font-size:18px;
+    }
+    
+  }
+    .issues-list {
+    
+      li {      
+        ul.meta-info {
+          float: none;
+          padding-left:0;
+          
+          li {
+            padding-left:0;
+
+              a .issue-title {  
+              font-size:30px;
+            }
+            
+          }
+        }
+      }
+    }
+
+}  // end iphone
+
+

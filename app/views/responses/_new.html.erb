@@ -2,6 +2,7 @@
 <%= form_for [@issue, @response], :html => {:role => "form"} do |f| %>
 <div class="form-group">
   <%= f.text_area :description, class:"form-control reply-description", placeholder:"Add a reply..."  %>
+ <p class="help-text">Some HTML tags allowed.  Insert code snippets using <span class="code-sample">&#60;code&#62;a code snippet&#60;/code&#62;</span>.</p>
   <p class="errors"><%= @response.errors.messages[:description][0] %></p>
   </div>
   <%= f.submit "Reply", class:"btn btn-primary reply-submit" %>
