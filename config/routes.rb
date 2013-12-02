@@ -13,7 +13,7 @@
   get 'add_primary_course' => 'courses#add_primary_course'
   get 'remove_primary_course' => 'courses#remove_primary_course'
 
-  get 'courses/:course_id/archive' => 'courses#show_archive'
+  get 'courses/:course_id/archive' => 'courses#show_archive', :as => 'show_archive'
 
   get 'add-admin' => 'site#new_admin'
   post 'add-admin' => 'site#create_admin'
