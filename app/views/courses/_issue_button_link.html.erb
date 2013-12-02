@@ -1,5 +1,6 @@
 <li>
-<%= button_to course_issue_path @course, issue, :method => "get", :title => issue.title.titleize do %>
+<%= link_to course_issue_path @course, issue do %>
+<button>
   <span class="issue-title"><%= issue.title.capitalize %></span>
 
     <ul class="meta-info">
@@ -8,5 +9,6 @@
         <%= render 'issue_responses_reply_count', :count => issue.responses.count %>
       <% end %>
     </ul>
+</button>
 <% end %>
 </li>
