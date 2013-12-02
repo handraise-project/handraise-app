@@ -1,0 +1,6 @@
+<h2>Archived Issues </h2>
+<ul class="issues-list">
+  <% @archived_issues.each do |issue| %>
+   <%= render 'issue_button_link', issue: issue %>
+  <% end %>
+</ul>

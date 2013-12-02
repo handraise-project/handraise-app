@@ -1,9 +1,9 @@
 class CoursesController < ApplicationController
-  before_filter :set_course, only: [:show, :edit, :update, :add_to_queue, :remove_from_queue]
+  before_filter :set_course, only: [:show, :edit, :update, :add_to_queue, :remove_from_queue, :show_archive]
 
   def index
-    @course = Course.find_by(:id => current_user.primary_course_id)
     if current_user.primary_course_id
+      @course = Course.find_by(:id => current_user.primary_course_id)
       redirect_to @course
     else
       @courses = Course.all
@@ -54,6 +54,11 @@ class CoursesController < ApplicationController
     current_user.primary_course_id = nil
     current_user.save
     redirect_to @course, :notice => "Primary Course Removed..."
+  end
+
+  def show_archive
+    @course = Course.find_by(id: params["course_id"])
+    @archived_issues = Issue.where(course_id: params["course_id"]).where(archived: true)
   end
 
   private

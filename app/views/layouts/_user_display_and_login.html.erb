@@ -9,6 +9,10 @@
     </a>
     <ul class="dropdown-menu user-menu">
       <li><%= link_to "Sign Out", signout_path %></li>
+      <li>
+        <% if @course && /(courses)+.\d/.match(request.env['PATH_INFO']) && request.env['PATH_INFO'].length < 12 %>
+        <%= link_to "#{@course.name} Archive", show_archive_path(@course) %></li>
+        <% end %>
 
         <%= render 'layouts/check_for_and_render_primary_course_select' %>
 

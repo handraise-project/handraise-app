@@ -1,0 +1,11 @@
+<ul class="pull-right inline-list">
+  <% if !@issue.archived? %>
+      <%= render 'add_remove_queue_buttons' %>
+  <% end %>
+
+  <% if can_see_resolve_button?(@issue) %>
+    <li>
+      <a class="btn btn-default btn-xs" href="<%= resolve_issue_path(@course, @issue) %>" role="button", class:"btn btn-default">Resolve</a>
+    </li>
+  <% end %>
+</ul>

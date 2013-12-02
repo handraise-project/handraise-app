@@ -1,0 +1,7 @@
+<p><%= auto_link(simple_format(@issue.description)) %></p>
+
+<%= render 'course_issue_show_buttons' %>
+
+<ul class="inline-list meta-info">
+  <li><%= issue_name_and_time_ago(@issue) %>
+</ul>
