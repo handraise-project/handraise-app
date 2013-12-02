@@ -6,21 +6,7 @@
 
 <ul class="issues-list">
   <% @instructor_queue.each do |issue| %>
-  <li>
-    <a href="<%= course_issue_path(@course, issue) %>" title="<%= issue.title.titleize %>"><%= issue.title.capitalize %>
-      <div class="pull-right">
-        <ul class="meta-info">
-          <%= issue_name_and_time_ago(issue) %>
-          <% if issue.responses.count > 0 %>
-            <li><span class="label label-default">
-              <span class="glyphicon glyphicon-comment"></span>
-              <%= pluralize(issue.responses.count, 'Reply') %></span>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </a>
-  </li>
-  <% end %> <!-- do block end -->
+    <%= render 'issues_in_queue', :issue => issue %>
+  <% end %>
 </ul>
 <% end %>
