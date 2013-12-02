@@ -1,14 +1,14 @@
 <li>
-<%= link_to course_issue_path @course, issue, :title => issue.title.titleize do %>
-  <%= issue.title.capitalize %>
+<%= link_to course_issue_path @course, issue do %>
+<button>
+  <span class="issue-title"><%= issue.title.capitalize %></span>
 
-  <div class="pull-right">
     <ul class="meta-info">
       <%= issue_name_and_time_ago(issue) %>
       <% if issue.responses.count > 0 %>
         <%= render 'issue_responses_reply_count', :count => issue.responses.count %>
       <% end %>
     </ul>
-  </div>
+</button>
 <% end %>
 </li>
