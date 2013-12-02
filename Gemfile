@@ -47,3 +47,7 @@ group :test, :development do
   gem "meta_request"
   gem 'annotate', ">=2.5.0"
 end
+
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
+ruby "2.0.0"
