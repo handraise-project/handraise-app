@@ -2,8 +2,8 @@ class CoursesController < ApplicationController
   before_filter :set_course, only: [:show, :edit, :update, :add_to_queue, :remove_from_queue, :show_archive]
 
   def index
-    @course = Course.find_by(:id => current_user.primary_course_id)
     if current_user.primary_course_id
+      @course = Course.find_by(:id => current_user.primary_course_id)
       redirect_to @course
     else
       @courses = Course.all
