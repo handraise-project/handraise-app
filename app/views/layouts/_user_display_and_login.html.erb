@@ -9,7 +9,9 @@
     </a>
     <ul class="dropdown-menu user-menu">
       <li><%= link_to "Sign Out", signout_path %></li>
-    </ul>
+
+        <%= render 'check_for_and_render_primary_course_select' %>
+
     </li>
   </ul>
 </div>
