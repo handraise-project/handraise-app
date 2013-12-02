@@ -11,7 +11,7 @@ module Course::IssuesHelper
   end
 
   def can_see_resolve_button?(issue)
-    !@issue.resolved? && (current_user == issue.user || current_user.admin)
+    !@issue.resolved? && !@issue.archived? && (current_user == issue.user || current_user.admin)
   end
 
   def issue_name_and_time_ago(issue)
