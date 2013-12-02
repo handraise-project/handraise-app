@@ -16,15 +16,9 @@
 
 <div class="container padding-on-top">
   <div class="main-content">
-    <% if flash[:notice] %>
-      <div class="row">
-        <div class="col-sm-12">
-          <p class="alert alert-success"><%= flash[:notice] %></p>
-        </div>
-      </div>   
-    <% end %>
+    <%= render 'layouts/flash_message' if flash[:notice] %>
     <%= yield %>
   </div>
-</div> <!-- /container -->
+</div>
 </body>
 </html>
