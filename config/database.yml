@@ -26,7 +26,6 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: handraise_app
+  database: handraise_app_production
   pool: 5
-  password:
+  timeout: 5000
