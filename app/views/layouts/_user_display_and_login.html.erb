@@ -4,7 +4,10 @@
     <% #TODO: link to do %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
     <%= image_tag(current_user.image_gravatar, :alt => "Gravatar", class:"gravatar") %>
-    <%= display_name(current_user) %> 
+    <%= display_name(current_user) %>
+    <% if current_user.admin %>
+    (Instructor)
+    <% end %>
     <b class="caret"></b>
     </a>
     <ul class="dropdown-menu user-menu">
