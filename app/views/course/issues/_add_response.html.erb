@@ -1,5 +1,8 @@
-<%= form_for @response, :url => add_response_path(@course,@issue) do |f| %>
-  <p><%= f.text_field :description %></p>
-
-  <p><%= f.submit %></p>
-<% end %> 
+<p><%= image_tag(current_user.image_gravatar, :alt => "Gravatar", class:"gravatar") %> <%= display_name(current_user)%>:</p>
+<%= form_for @response, :url => add_response_path(@course,@issue), :html => {:role => "form"} do |f| %>
+<div class="form-group">
+  <%= f.text_area :description, class:"form-control reply-description", placeholder:"Add a reply..."  %>
+  <p class="errors"><%= @response.errors.messages[:description][0] %></p>
+  </div>
+  <%= f.submit "Reply", class:"btn btn-primary reply-submit" %>
+<% end %>
