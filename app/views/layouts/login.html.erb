@@ -20,7 +20,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#" title="Handraise" class="navbar-brand"><%= image_tag("handraise_noun_project_12043_gray.svg", :alt => "Handraise icon", :size => "25x25", class:"app-brand") %> <div class="app-name">Handraise</div></a>
+        <%= link_to '#', :title => "Handraise", :class => "navbar-brand" do %>
+          <%= render 'layouts/navbar' %>
+        <% end %>
       </div><!--/.navbar-header -->
     </div>
   </div>
