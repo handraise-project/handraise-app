@@ -1,5 +1,5 @@
 class Course::IssuesController < ApplicationController
-  before_action :set_course, except: [:resolve]
+  before_action :set_course
   before_action :set_issue, except: [:new, :create]
 
   def show
@@ -46,13 +46,13 @@ class Course::IssuesController < ApplicationController
   def add_to_queue
       @issue.instructor_id = current_user.id
       @issue.save 
-    redirect_to issues_path, :notice => "Added to #{current_user.name}'s queue"
+    redirect_to @course, :notice => "Added to #{current_user.name}'s queue"
   end
 
   def remove_from_queue
       @issue.instructor_id = nil
       @issue.save 
-    redirect_to issues_path, :notice => "Issue removed from #{current_user.name}'s queue"
+    redirect_to @course, :notice => "Issue removed from #{current_user.name}'s queue"
   end
 
   private
