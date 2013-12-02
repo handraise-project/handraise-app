@@ -10,15 +10,8 @@
     <ul class="dropdown-menu user-menu">
       <li><%= link_to "Sign Out", signout_path %></li>
 
-        <%#= render 'check_for_and_render_primary_course_select' %>
-          <% if @course && /(courses)+.\d/.match(request.env['PATH_INFO']) && request.env['PATH_INFO'].length < 12 %>
-            <% if current_user.primary_course_id %>
-              <li><%= link_to "Remove #{@course.name} as your primary course.", action: "remove_primary_course", course_id: @course.id %></li>
-            <% else %>
-              <li><%= link_to "Add #{@course.name} as your primary course.", action: "add_primary_course", course_id: @course.id %></li>
-            <% end %>
-          <% end %>
-          
+        <%= render 'layouts/check_for_and_render_primary_course_select' %>
+
     </li>
   </ul>
 </div>
