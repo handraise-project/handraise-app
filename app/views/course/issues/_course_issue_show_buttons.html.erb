@@ -1,0 +1,17 @@
+<ul class="pull-right inline-list">
+
+  <% if current_user == @issue.user %>
+    <%= link_to edit_course_issue_path(@course, @issue), :class => 'btn btn-default btn-xs' do %>
+      <li><span class="glyphicon glyphicon-edit"></span> Edit</li>
+    <% end %>
+  <% end %>
+
+  <%= render 'add_remove_queue_buttons' %>
+  
+
+  <% if can_see_resolve_button?(@issue) %>
+  <li>
+  <a class="btn btn-default btn-xs" href="<%= resolve_issue_path(@course, @issue) %>" role="button", class:"btn btn-default">Resolve</a>
+  </li>
+  <% end %>
+</ul>
