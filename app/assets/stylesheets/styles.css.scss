@@ -101,31 +101,34 @@
   padding-left:0;
 
   li {
-    padding:5px 10px;
-    margin-bottom:5px; 
-    border:1px solid #eeeeee;
-    background-color: #ffffff;
-    cursor:pointer;
 
-    &:hover {
-      background-color:#f5f5f5;
-    }
+    button {
+      padding:5px 10px;
+      width: 100%;
+      margin-bottom:5px; 
+      border:1px solid #eeeeee;
+      background-color: #ffffff;
+      cursor:pointer;
+      text-align: left;
 
-    a:hover {
-      text-decoration: none;
-    }
+      &:hover {
+        background-color:#f5f5f5;
+      }
 
-    .meta-info {
-      float: right;
-    }
+      .issue-title {
+        color: $link-color;
+      }
 
-    ul {
-      list-style:none;
-      li {
-        display: inline-block;
-        border: none;
-        padding:2px 0 0 0;          
-        background-color:inherit;
+      ul.meta-info {
+        float: right;
+        list-style:none;
+
+        li {
+          display: inline-block;
+          border: none;
+          padding:2px 0 0 0;          
+          background-color:inherit;
+        }
       }
     }
   }
