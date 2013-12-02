@@ -2,7 +2,12 @@ class CoursesController < ApplicationController
   before_filter :set_course, only: [:show, :edit, :update, :add_to_queue, :remove_from_queue]
 
   def index
-    @courses = Course.all
+    @course = Course.find_by(:id => current_user.primary_course_id)
+    if current_user.primary_course_id
+      redirect_to @course
+    else
+      @courses = Course.all
+    end
   end
 
   def new
@@ -35,6 +40,20 @@ class CoursesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def add_primary_course
+    @course = Course.find_by(:id => params["course_id"])
+    current_user.primary_course_id = params["course_id"]
+    current_user.save
+    redirect_to @course
+  end
+
+  def remove_primary_course
+    @course = Course.find_by(:id => params["course_id"])
+    current_user.primary_course_id = nil
+    current_user.save
+    redirect_to @course
   end
 
   private

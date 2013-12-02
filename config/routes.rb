@@ -10,6 +10,9 @@
   get 'courses/:course_id/issues/:id/add_to_queue' => 'course/issues#add_to_queue', :as => 'add_to_queue'
   get 'courses/:course_id/issues/:id/remove_from_queue' => 'course/issues#remove_from_queue', :as => 'remove_from_queue'
 
+  post 'add_primary_course' => 'courses#add_primary_course'
+  post 'remove_primary_course' => 'courses#remove_primary_course'
+
   get 'add-admin' => 'site#new_admin'
   post 'add-admin' => 'site#create_admin'
 
