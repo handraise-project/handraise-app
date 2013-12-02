@@ -1,4 +1,4 @@
-Handraise::Application.routes.draw do
+  Handraise::Application.routes.draw do
 
   resources :courses do 
     resources :issues, :controller => 'course/issues', except: [:index]
