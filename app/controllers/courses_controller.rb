@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
 
   def show
     @unresolved_issues = @course.issues.unresolved
-    @resolved_issues = @course.issues.resolved
+    @resolved_issues = @course.issues.resolved.not_archived
     @instructor_queue = Issue.in_instructor_queue(current_user)
   end
 

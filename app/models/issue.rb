@@ -25,6 +25,7 @@ class Issue < ActiveRecord::Base
   scope :not_queued, -> { where(:instructor_id => nil) }
   scope :in_instructor_queue, ->(user) { where(:instructor_id => user.id) }
   scope :archived, -> { where(:archived => true) }
+  scope :not_archived, -> { where(:archived => false) }
 
   def resolved?
     self.resolved > 0 
