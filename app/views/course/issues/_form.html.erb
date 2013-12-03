@@ -12,12 +12,12 @@
  <p class="help-text">Some HTML tags allowed.  Insert code snippets using <span class="code-sample">&#60;code&#62;a code snippet&#60;/code&#62;</span>.</p>
   </div>
   <div class="radio"> 
-  <%= f.radio_button :anonymous, :false, :checked => true %>
-  <%= f.label :anonymous, "Post anonymously", :value => 'false' %>
+  <%= f.radio_button :anonymous, :true, :checked => true %>
+  <%= f.label :anonymous, "Post anonymously", :value => 'true' %>
   </div>
    <div class="radio">
-  <%= f.radio_button :anonymous, :true %>   
-  <%= f.label :anonymous, "Display my name", :value => 'true' %>
+  <%= f.radio_button :anonymous, :false %>   
+  <%= f.label :anonymous, "Display my name", :value => 'false' %>
    </div>
   <%= f.submit class:"btn btn-primary issue-submit" %>
 <% end %>
