@@ -189,6 +189,13 @@
 // MEDIA QUERIES (RESPONSIVE)
 // ----------------------------
 
+//ipad
+
+@media only screen and (max-width: 768px) {
+  .main-content {
+    padding-top: 35px;
+  }
+}
 //iPhone
 @media only screen and (max-width: 480px) {
 
@@ -203,7 +210,6 @@
          font-size: 1.8em;
       }
     }
-
   //ISSUES LIST
   // ----------------------------
 
