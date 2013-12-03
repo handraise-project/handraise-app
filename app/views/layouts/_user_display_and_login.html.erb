@@ -4,10 +4,13 @@
     <% #TODO: link to do %>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
     <%= image_tag(current_user.image_gravatar, :alt => "Gravatar", class:"gravatar") %>
-    <%= display_name(current_user) %>
-    <% if current_user.admin %>
-    (Instructor)
-    <% end %>
+
+    <span class="disappearing-menu">
+        <%= display_name(current_user) %>
+        <% if current_user.admin %>
+        (Instructor)
+        <% end %>
+    </span>
     <b class="caret"></b>
     </a>
     <ul class="dropdown-menu user-menu">
@@ -16,9 +19,7 @@
         <% if @course && /(courses)+.\d/.match(request.env['PATH_INFO']) && request.env['PATH_INFO'].length < 12 %>
         <%= link_to "#{@course.name} Archive", show_archive_path(@course) %></li>
         <% end %>
-
         <%= render 'layouts/check_for_and_render_primary_course_select' %>
-
     </li>
   </ul>
 </div>
