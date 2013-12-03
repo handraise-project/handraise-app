@@ -1,5 +1,8 @@
-<h1><%= display_name(current_user) %>'s Queue</h1>
-
+<div class="row list-header">
+    <div class="col-sm-12">
+      <h1><%= display_name(current_user) %>'s Queue</h1>
+    </div>
+  </div>
 <% if @instructor_queue.count == 0 %>
   <p>There are currently no items in your queue.</p>
 <% else %>
