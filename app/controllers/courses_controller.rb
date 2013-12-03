@@ -25,9 +25,15 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @unresolved_issues = @course.issues.unresolved
+    if current_user.admin
+      @unresolved_issues = @course.issues.unresolved.not_queued
+      @instructor_queue = @course.issues.in_instructor_queue(current_user)
+    else
+      @unresolved_issues = @course.issues.unresolved
+    end
+
     @resolved_issues = @course.issues.resolved.not_archived
-    @instructor_queue = Issue.in_instructor_queue(current_user)
+    
   end
 
   def edit
