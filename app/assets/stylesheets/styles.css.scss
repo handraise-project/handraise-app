@@ -229,6 +229,10 @@ footer {
 //iPhone
 @media only screen and (max-width: 480px) {
 
+  .main-content {
+    padding-top:0;
+  }
+
   //LOGIN VIEW
   // ----------------------------
    .centered {
