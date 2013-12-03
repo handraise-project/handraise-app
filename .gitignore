@@ -14,7 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-.env
+.env*
 /coverage
 /research
 /design
