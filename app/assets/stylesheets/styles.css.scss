@@ -1,7 +1,6 @@
 @import "variables";
 @import "mixins";
 
-
 // BASE
 // ----------------------------
 .container {
@@ -136,6 +135,22 @@
       }
     }
   }
+}
+
+
+// ISSUE DESCRIPTION
+// ----------------------------
+
+.main-content {
+    .issue-description {
+      font-size: 12px;
+
+      pre {
+        font-size: 12px;
+        line-height: 10px;
+        padding:5px;
+      }
+    }
 }
 
 // ISSUE REPLIES

@@ -14,7 +14,7 @@
     <% @courses.each do |course| %>
     <li>
       <%= link_to course do %>
-      <button><span class="course-title"><%= course.name.capitalize %></span></button>
+      <button><span class="course-title"><%= course.name %></span></button>
       <% end %>
     </li>
     <% end %>
