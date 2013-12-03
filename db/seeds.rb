@@ -46,7 +46,7 @@ issue1.created_at = random_recent_past
 issue1.save
 
 issue2 = course1.issues.new
-issue2.user_id = student1.id
+issue2.user_id = student2.id
 issue2.anonymous = true
 issue2.title = "rake db:migrate error"
 issue2.description = <<-LONG_DESCRIPTION
@@ -63,42 +63,48 @@ LONG_DESCRIPTION
 issue2.created_at = random_recent_past
 issue2.save
 
+issue3 = course1.issues.new
+issue3.user_id = student3.id
+issue3.anonymous = true
+issue3.title = "Rails: undefined method `+' for nil:NilClass"
+issue3.description = <<-LONG_DESCRIPTION
+This is my code:
+<pre><% @something.each do |something| %>
 
-# issue2 = FactoryGirl.build(:anonymous_issue)
-# issue2.user_id = student2.id
-# issue2.title = "Rake db:migrate errors"
-# issue2.description = "We get the follwing error when running rake db:migrate
-# Rake Aborted!
-# Uninitialized constant Bundler
-# We looked at this Stackoverflow article, but it didn't solve the problem:
-# http://stackoverflow.com/questions/5605522/ruby-on-rails-rake-dbmigrate-produces-error-rake-aborted-uninitialized-con"
-# issue2.created_at = random_recent_past
-# issue2.save
+<% i = i+1 %>
 
-# issue3 = FactoryGirl.build(:issue)
-# issue3.user_id = student3.id
-# issue3.title = "undefined method `permissions=' when trying to run rake db:seed"
-# issue3.description = <<-END_LONG_DESCRIPTION
-#   this is the output we're getting:
-#   rake db:seed --trace ** Invoke db:seed (first_time)
-#   ** Execute db:seed
-#   ** Invoke db:abort_if_pending_migrations (first_time)
-#   ** Invoke environment (first_time)
-#   ** Execute environment
-#   ** Execute db:abort_if_pending_migrations
-#   rake aborted!
-#   undefined method `permissions=' for #<User:0x007fb742799ec8>
-# END_LONG_DESCRIPTION
-# issue3.created_at = random_recent_past
-# issue3.save
+<div class="row">
+<div class="span1"><span class="badge untouched"><%= i %></span></div>
+</div>
 
-# issue3 = FactoryGirl.build(:anonymous_issue)
-# issue3.user_id = student3.id
-# issue3.title = "Sinatra routing error"
-# issue3.description = <<-END_LONG_DESCRIPTION
-# I have just setup Sinatra v1.1.0 inside my rails (v3.0.1) app. But I can't invoke any routes that are more than 1 level deep.
-# This works - http://localhost/customer/3
-# But this one does not work - http://localhost/customer/3/edit and I get a "Routing Error"
-# END_LONG_DESCRIPTION
-# issue3.created_at = random_recent_past
-# issue3.save
+<% end %></pre>
+
+This is the error I'm getting:
+<pre>undefined method `+' for nil:NilClass</pre>
+
+Any ideas what the issue might be?
+LONG_DESCRIPTION
+issue3.created_at = random_recent_past
+issue3.save
+
+issue4 = course1.issues.new
+issue4.user_id = student4.id
+issue4.title = "undefined method for nil class(?)"
+issue4.description = <<-LONG_DESCRIPTION
+I keep getting the above error message when trying to view data from my model in my view (the index page of my controller)
+
+ My controller:
+<pre>def index
+
+ @recipe = Recipe.all
+
+ end</pre>
+
+ My view:
+ <pre><% @recipes.each do |r| %>
+   <tr><td><%= r.dish_name %></td></tr>
+    <% end %></pre>
+LONG_DESCRIPTION
+issue4.created_at = random_recent_past
+issue4.save
+
