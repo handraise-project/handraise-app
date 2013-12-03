@@ -13,9 +13,11 @@
    <ul class="issues-list">
     <% @courses.each do |course| %>
     <li>
-      <a href="<%= course %>" title="<%= course.name.capitalize %>"><button><%= course.name.capitalize %></button></a>
+      <%= link_to course do %>
+      <button><%= course.name.capitalize %></button>
       <% end %>
     </li>
+    <% end %>
   </ul>
   <% else %>
   <p>No courses have been added :-/</p>
