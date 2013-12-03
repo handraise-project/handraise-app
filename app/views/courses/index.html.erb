@@ -1,6 +1,6 @@
 <div class="row list-header">
   <div class="col-sm-12">
-    <%= if current_user.admin %>
+  <% if current_user.admin %>
     <%= link_to "New Course", new_course_path, class:"btn btn-default pull-right action-button" %>
     <% end %>
     <h1>Courses</h1>
@@ -20,7 +20,8 @@
     <% end %>
   </ul>
   <% else %>
-  <p class="no-items">No courses have been added :-/ <%= link_to "Add one now?", new_course_path %></p>
-  <% end %>
-</div>
+  <p class="no-items">No courses have been added :-/ 
+    <%= link_to "Add one now?", new_course_path %></p>
+    <% end %>
+  </div>
 </div>
