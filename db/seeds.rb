@@ -33,10 +33,35 @@ instructor2 = FactoryGirl.create(:instructor)
 
 issue1 = course1.issues.new
 issue1.user_id = student1.id
-issue1.title = "rails s keeps crashing"
-issue1.description = "For some reason, 'rails s' keeps crashing when we run it.  We're totally new to Rails so no idea what's going on :-/"
+issue1.title = "Pigeon Lab: Unexpected hash error in Sinatra"
+issue1.description = <<-LONG_DESCRIPTION
+We are working on the Pigeon lab and getting stuck on the following error:
+<pre>
+> NoMethodError: undefined method `[]' for nil:NilClass     from
+> (irb):12:in `block in irb_binding'    from (irb):11:in `each'     from
+> (irb):11
+</pre>
+LONG_DESCRIPTION
 issue1.created_at = random_recent_past
 issue1.save
+
+issue2 = course1.issues.new
+issue2.user_id = student1.id
+issue2.anonymous = true
+issue2.title = "rake db:migrate error"
+issue2.description = <<-LONG_DESCRIPTION
+I have been trying to run the rake db:migrate command and uninstalled and installed the gem we discussed in class, but no luck. This is the error I am getting:
+<pre>
+DEPRECATION WARNING: config.generators in Rails::Railtie is deprecated. Please use config.app_generators instead. (called from /Users/fayimora/Sites/rails_projects/sample_app/config/application.rb:12)
+DEPRECATION WARNING: config.generators in Rails::Railtie is deprecated. Please use config.app_generators instead. (called from /Users/fayimora/Sites/rails_projects/sample_app/config/application.rb:12)
+rake aborted!
+undefined method `prerequisites' for nil:NilClass
+/Users/fayimora/Sites/rails_projects/sample_app/Rakefile:7
+(See full trace by running task with --trace)
+</pre>
+LONG_DESCRIPTION
+issue2.created_at = random_recent_past
+issue2.save
 
 
 # issue2 = FactoryGirl.build(:anonymous_issue)

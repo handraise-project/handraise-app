@@ -14,9 +14,3 @@ module UsersHelper
     end
   end
 end
-
- # <% if current_user.image_gravatar.blank? %>
- #      <%= gravatar_image_tag('junk', :alt => 'Github Default Gravatar', :class => 'gravatar', :gravatar => { :default => :wavatar }) %>
- #    <% else %>
- #       <%= image_tag(current_user.image_gravatar, :alt => "Gravatar", class:"gravatar") %>    
- #    <% end %>
