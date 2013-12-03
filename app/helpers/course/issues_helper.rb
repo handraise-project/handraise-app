@@ -19,7 +19,7 @@ module Course::IssuesHelper
   end
 
   def added_to_instructor_queue(issue)
-    if issue.instructor_id
+    if issue.instructor_id && current_user.id != issue.instructor_id
       instructor = User.find(issue.instructor_id)
       content_tag(:li, "In #{instructor.name}'s Queue")
     end
