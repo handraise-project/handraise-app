@@ -17,4 +17,12 @@ module Course::IssuesHelper
   def issue_name_and_time_ago(issue)
     content_tag(:li, "#{issue_poster_name(issue)}, #{time_ago_in_words(issue.created_at, :seconds => true )} ago")
   end
+
+  def added_to_instructor_queue(issue)
+    if issue.instructor_id && current_user.id != issue.instructor_id
+      instructor = User.find(issue.instructor_id)
+      content_tag(:li, "In #{instructor.name}'s Queue")
+    end
+  end
+
 end
