@@ -1,5 +1,24 @@
-<p><%= link_to "Add a new course", new_course_path, :class => "btn btn-primary btn-lg" %>
-</p>
-<% @courses.each do |course| %>
-  <p><%= link_to course.name, course %></p>
-<% end %>
+<div class="row list-header">
+  <div class="col-sm-12">
+    <%# if current_user.admin %>
+    <%= link_to "New Course", new_course_path, class:"btn btn-default pull-right action-button" %>
+    <%# end %>
+    <h1>Courses</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+   <% if @courses.any? %>
+   <ul class="issues-list">
+    <% @courses.each do |course| %>
+    <li>
+      <a href="<%= course %>" title="<%= course.name.capitalize %>"><button><%= course.name.capitalize %></button></a>
+      <% end %>
+    </li>
+  </ul>
+  <% else %>
+  <p>No courses have been added :-/</p>
+  <% end %>
+</div>
+</div>
