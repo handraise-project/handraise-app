@@ -12,6 +12,6 @@
 
 FactoryGirl.define do
   factory :course do
-    name "Flatiron Ruby 003"
+    name "Ruby 003 (Fall 2013)"
   end
 end

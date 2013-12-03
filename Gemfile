@@ -15,6 +15,7 @@ gem 'rails_autolink'
 gem 'whenever', :require => false
 gem 'octokit'
 gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
+gem 'gravatar_image_tag'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 
 group :doc do

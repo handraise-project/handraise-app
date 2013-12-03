@@ -16,25 +16,27 @@
 
 # #<User id: 1, name: "Anders Ramsay", admin: false, created_at: "2013-11-29 19:08:07", updated_at: "2013-11-29 19:08:07", uid: "819213", github_name: "andersr", provider: "github", email: "andersr@gmail.com", image_gravatar: "https://2.gravatar.com/avatar/cb7a4cc2cff3810e8cc4b...">
 
-# def random_recent_past
-#    DateTime.now - rand(0..40).minutes - rand(0..60).seconds
-# end
+def random_recent_past
+   DateTime.now - rand(0..40).minutes - rand(0..60).seconds
+end
 
-# course = Course.create(:name => "Ruby 003")
+course1 = Course.create(:name => "Ruby 003 (Fall 2013)")
+course2 = Course.create(:name => "iOS 000 (Fall 2013)")
 
-# student1 = FactoryGirl.create(:student)
-# student2 = FactoryGirl.create(:student)
-# student3 = FactoryGirl.create(:student)
-# # instructor1 = FactoryGirl.create(:instructor)
-# # instructor2 = FactoryGirl.create(:instructor)
+student1 = FactoryGirl.create(:student)
+student2 = FactoryGirl.create(:student)
+student3 = FactoryGirl.create(:student)
+student4 = FactoryGirl.create(:student)
 
+instructor1 = FactoryGirl.create(:instructor)
+instructor2 = FactoryGirl.create(:instructor)
 
-# issue1 = FactoryGirl.build(:issue)
-# issue1.user_id = student1.id
-# issue1.title = "rails s keeps crashing"
-# issue1.description = "For some reason, 'rails s' keeps crashing when we run it.  We're totally new to Rails so no idea what's going on :-/"
-# issue1.created_at = random_recent_past
-# issue1.save
+issue1 = course1.issues.new
+issue1.user_id = student1.id
+issue1.title = "rails s keeps crashing"
+issue1.description = "For some reason, 'rails s' keeps crashing when we run it.  We're totally new to Rails so no idea what's going on :-/"
+issue1.created_at = random_recent_past
+issue1.save
 
 
 # issue2 = FactoryGirl.build(:anonymous_issue)

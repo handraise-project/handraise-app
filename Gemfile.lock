@@ -93,6 +93,7 @@ GEM
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
     formatador (0.2.4)
+    gravatar_image_tag (1.2.0)
     guard (2.2.4)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -265,6 +266,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   faker
+  gravatar_image_tag
   guard (>= 2.1.0)
   guard-rspec
   jquery-rails
