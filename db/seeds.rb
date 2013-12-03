@@ -27,6 +27,12 @@ student1 = FactoryGirl.create(:student)
 student2 = FactoryGirl.create(:student)
 student3 = FactoryGirl.create(:student)
 student4 = FactoryGirl.create(:student)
+student5 = FactoryGirl.create(:student)
+student6 = FactoryGirl.create(:student)
+student7 = FactoryGirl.create(:student)
+student8 = FactoryGirl.create(:student)
+student9 = FactoryGirl.create(:student)
+
 
 instructor1 = FactoryGirl.create(:instructor)
 instructor2 = FactoryGirl.create(:instructor)
@@ -107,4 +113,23 @@ I keep getting the above error message when trying to view data from my model in
 LONG_DESCRIPTION
 issue4.created_at = random_recent_past
 issue4.save
+
+issue5 = course1.issues.new
+issue5.user_id = student5.id
+issue5.anonymous = true
+issue5.title = "rails server keeps crashing"
+issue5.created_at = random_recent_past
+issue5.save
+
+issue6 = course1.issues.new
+issue6.user_id = student6.id
+issue6.title = "completely stuck :-/"
+issue6.created_at = random_recent_past
+issue6.save
+
+issue7 = course1.issues.new
+issue7.user_id = student7.id
+issue7.title = "sinatra routing errors"
+issue7.created_at = random_recent_past
+issue7.save
 
