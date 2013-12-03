@@ -1,4 +1,4 @@
-class CoursesController < ApplicationController
+  class CoursesController < ApplicationController
   before_filter :set_course, only: [:show, :edit, :update, :add_to_queue, :remove_from_queue, :show_archive]
 
   def index
@@ -26,13 +26,13 @@ class CoursesController < ApplicationController
 
   def show
     if current_user.admin
-      @unresolved_issues = @course.issues.unresolved.not_queued
-      @instructor_queue = @course.issues.in_instructor_queue(current_user)
+      @unresolved_issues = @course.issues.order('created_at DESC').unresolved.not_queued
+      @instructor_queue = @course.issues.order('created_at DESC').in_instructor_queue(current_user)
     else
-      @unresolved_issues = @course.issues.unresolved
+      @unresolved_issues = @course.issues.order('created_at DESC').unresolved
     end
 
-    @resolved_issues = @course.issues.resolved.not_archived
+    @resolved_issues = @course.issues.order('created_at DESC')resolved.not_archived
     
   end
 
