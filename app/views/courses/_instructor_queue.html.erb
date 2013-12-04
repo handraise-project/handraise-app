@@ -7,7 +7,7 @@
   <p class="no-items">There are currently no items in your queue.</p>
 <% else %>
 
-<ul class="issues-list">
+<ul class="issues-list" id="instructor_refresh">
   <% @instructor_queue.each do |issue| %>
     <%= render 'issue_button_link', :issue => issue %>
   <% end %>

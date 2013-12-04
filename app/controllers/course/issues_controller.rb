@@ -55,10 +55,16 @@ class Course::IssuesController < ApplicationController
     redirect_to @course, :notice => "Issue removed from #{current_user.name}'s queue"
   end
 
-  def queue_item #may just point to add_to_queue
+  def queue_item
     @issue.instructor_id = current_user.id
     @issue.save
-    render nothing: true
+   
+    # @course.issues.in_instructor_queue(current_user).each do |issue|
+    #   issue.created_at
+    # end
+    
+    # json_issue = 
+    render json: @course.issues.in_instructor_queue(current_user).to_json(include: :user)
   end
   
   private
