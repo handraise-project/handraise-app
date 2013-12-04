@@ -21,7 +21,7 @@ module Course::IssuesHelper
   def added_to_instructor_queue(issue)
     if issue.instructor_id && current_user.id != issue.instructor_id
       instructor = User.find(issue.instructor_id)
-      content_tag(:li, "In #{instructor.name}'s Queue")
+      content_tag(:li, "In #{instructor.name}'s Queue", :class => "important")
     end
   end
 
