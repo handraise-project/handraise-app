@@ -44,7 +44,6 @@ group :test, :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "terminal-notifier-guard"
-  gem "factory_girl_rails"
   gem "simplecov"
   gem "database_cleaner"
   gem "guard", ">=2.1.0"
@@ -53,5 +52,7 @@ group :test, :development do
   gem "meta_request"
   gem 'annotate', ">=2.5.0"
 end
+
+gem "factory_girl_rails"
 
 ruby "2.0.0"
