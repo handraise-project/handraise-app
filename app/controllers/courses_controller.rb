@@ -27,7 +27,7 @@
   def show
     if current_user.admin
       @unresolved_issues = @course.issues.order('created_at DESC').unresolved.not_queued
-      @instructor_queue = @course.issues.order('created_at DESC').in_instructor_queue(current_user)
+      @instructor_queue = @course.issues.order('created_at DESC').in_instructor_queue(current_user).unresolved.not_archived
     else
       @unresolved_issues = @course.issues.order('created_at DESC').unresolved
     end
