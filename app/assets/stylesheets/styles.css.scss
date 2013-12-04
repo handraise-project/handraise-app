@@ -1,6 +1,10 @@
 @import "variables";
 @import "mixins";
 
+
+$grid-float-breakpoint: 150px;
+@import "twitter/bootstrap";
+
 // BASE
 // ----------------------------
 .container {
@@ -17,6 +21,12 @@ footer {
   margin: 10px 0;
 }
 
+.prime-menu {
+  position: absolute !important;
+  box-shadow: 0 6px 10px !important;
+  background-color: white !important;
+
+}
 // LISTS
 // ----------------------------
 .no-bullets {
@@ -225,6 +235,7 @@ footer {
   // .main-content {
   //   padding-top: 0;
   // }
+
 }
 //iPhone
 @media only screen and (max-width: 480px) {
