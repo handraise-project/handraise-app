@@ -1,4 +1,4 @@
-<div class="issue-description"><%= auto_link(simple_format(@issue.description)) %></div>
+<div class="issue-description"><%=  simple_format(auto_link(@issue.description, :sanitize => false), {}, :sanitize => false) %></div>
 
 <%= render 'course_issue_show_buttons' %>
 

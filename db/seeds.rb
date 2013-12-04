@@ -17,7 +17,7 @@
 # #<User id: 1, name: "Anders Ramsay", admin: false, created_at: "2013-11-29 19:08:07", updated_at: "2013-11-29 19:08:07", uid: "819213", github_name: "andersr", provider: "github", email: "andersr@gmail.com", image_gravatar: "https://2.gravatar.com/avatar/cb7a4cc2cff3810e8cc4b...">
 
 def random_recent_past
-   DateTime.now - rand(0..20).minutes - rand(0..60).seconds
+   DateTime.now - rand(0..20130).minutes - rand(0..60).seconds
 end
 
 course1 = Course.create(:name => "Ruby 003 (Fall 2013)")
@@ -75,18 +75,11 @@ issue3.anonymous = true
 issue3.title = "Rails: undefined method `+' for nil:NilClass"
 issue3.description = <<-LONG_DESCRIPTION
 This is my code:
-<pre><% @something.each do |something| %>
+<pre>\<% @something.each do |something| %\>
 
-<% i = i+1 %>
+\<% i = i+1 %\>
 
-<div class="row">
-<div class="span1"><span class="badge untouched"><%= i %></span></div>
-</div>
-
-<% end %></pre>
-
-This is the error I'm getting:
-<pre>undefined method `+' for nil:NilClass</pre>
+\<div class="row"\></pre>
 
 Any ideas what the issue might be?
 LONG_DESCRIPTION
@@ -133,3 +126,8 @@ issue7.title = "sinatra routing errors"
 issue7.created_at = random_recent_past
 issue7.save
 
+
+# <div class="span1"><span class="badge untouched"><%= i %></span></div>
+# </div>
+
+# <% end %>
