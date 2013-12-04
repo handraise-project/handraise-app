@@ -12,7 +12,6 @@
             <span class="issue-title"><%= issue.title.capitalize %></span>
             <ul class="meta-info">
               <%= issue_name_and_time_ago(issue) %>
-              <%= added_to_instructor_queue(issue) %>
               <% if issue.responses.count > 0 %>
                 <%= render 'issue_responses_reply_count', :count => issue.responses.count %>
               <% end %>
