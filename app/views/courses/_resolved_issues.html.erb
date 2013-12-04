@@ -4,9 +4,22 @@
         <h1>Resolved Issues</h1>
       </div>
     </div>
-  <ul class="button-list">
+  <ul class="issues-list">
     <% @resolved_issues.each do |issue| %>
-      <%= render 'resolved_issues_each', :issue => issue %>
+      <li>
+        <%= link_to course_issue_path(@course, issue) do %>
+          <button>
+            <span class="issue-title"><%= issue.title.capitalize %></span>
+            <ul class="meta-info">
+              <%= issue_name_and_time_ago(issue) %>
+              <%= added_to_instructor_queue(issue) %>
+              <% if issue.responses.count > 0 %>
+                <%= render 'issue_responses_reply_count', :count => issue.responses.count %>
+              <% end %>
+            </ul>
+          </button>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 <% end %>
