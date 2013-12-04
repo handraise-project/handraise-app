@@ -5,7 +5,7 @@
 
   <% if can_see_resolve_button?(@issue) %>
     <li>
-      <a class="btn btn-default btn-xs" href="<%= resolve_issue_path(@course, @issue) %>" role="button", class:"btn btn-default">Resolve</a>
+      <a class="btn btn-default btn-sm" href="<%= resolve_issue_path(@course, @issue) %>" role="button", class:"btn btn-default">Resolve</a>
     </li>
   <% end %>
 </ul>

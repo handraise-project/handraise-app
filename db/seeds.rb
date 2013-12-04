@@ -17,7 +17,7 @@
 # #<User id: 1, name: "Anders Ramsay", admin: false, created_at: "2013-11-29 19:08:07", updated_at: "2013-11-29 19:08:07", uid: "819213", github_name: "andersr", provider: "github", email: "andersr@gmail.com", image_gravatar: "https://2.gravatar.com/avatar/cb7a4cc2cff3810e8cc4b...">
 
 def random_recent_past
-   DateTime.now - rand(0..20130).minutes - rand(0..60).seconds
+   DateTime.now - rand(0..30).minutes - rand(0..60).seconds
 end
 
 course1 = Course.create(:name => "Ruby 003 (Fall 2013)")

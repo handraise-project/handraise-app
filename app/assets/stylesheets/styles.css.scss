@@ -165,11 +165,11 @@ footer {
 
 .main-content {
     .issue-description {
-      font-size: 12px;
+      font-size: 14px;
 
       pre {
-        font-size: 12px;
-        line-height: 12px;
+        font-size: 14px;
+        line-height: 14px;
         padding:5px;
       }
     }
@@ -179,8 +179,10 @@ footer {
 // ----------------------------
 .issue-replies {
   font-size:12px;
+
  
   h2 {
+    margin-top: 0;
     border-bottom: 1px solid $light-gray;
     padding-bottom: .5em;
     margin-bottom: 0;
