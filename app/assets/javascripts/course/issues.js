@@ -1,7 +1,7 @@
     $(function() {
       $('input[type=button], .draggable').draggable({
         cancel:false
-        revert: true,
+        // revert: true,
         //snap: '#droppable'
 
       });
