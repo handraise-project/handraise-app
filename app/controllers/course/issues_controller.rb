@@ -56,7 +56,9 @@ class Course::IssuesController < ApplicationController
   end
 
   def queue_item #may just point to add_to_queue
-    binding.pry
+    @issue.instructor_id = current_user.id
+    @issue.save
+    render nothing: true
   end
   
   private
