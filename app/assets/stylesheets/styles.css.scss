@@ -240,10 +240,9 @@ footer {
 //iPhone
 @media only screen and (max-width: 480px) {
 
-  // .main-content {
-  //   padding-top:0;
-  // }
-
+  .dropdown-menu {
+    max-width: 320px;
+  }
 
   //LOGIN VIEW
   // ----------------------------
