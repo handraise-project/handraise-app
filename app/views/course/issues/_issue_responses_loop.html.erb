@@ -4,9 +4,10 @@
   <li>
     <p><%= display_gravatar(response.user) %> <%= display_name(response.user)%>, <%= time_ago_in_words(response.created_at, :seconds => true ) %> ago:</p>
     <blockquote>
-      <%= auto_link(simple_format(response.description)) %>
+      <%= format_and_sanitize_text(response.description) %>
     </blockquote>
   </li>
   <% end %>
 </ul>
 <% end %>
+

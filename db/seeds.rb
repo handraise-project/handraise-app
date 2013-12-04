@@ -75,11 +75,11 @@ issue3.anonymous = true
 issue3.title = "Rails: undefined method `+' for nil:NilClass"
 issue3.description = <<-LONG_DESCRIPTION
 This is my code:
-<pre>\<% @something.each do |something| %\>
+<pre><% @something.each do |something| %>
 
-\<% i = i+1 %\>
+<% i = i+1 %>
 
-\<div class="row"\></pre>
+<% end %> </pre>
 
 Any ideas what the issue might be?
 LONG_DESCRIPTION
@@ -125,9 +125,3 @@ issue7.user_id = student7.id
 issue7.title = "sinatra routing errors"
 issue7.created_at = random_recent_past
 issue7.save
-
-
-# <div class="span1"><span class="badge untouched"><%= i %></span></div>
-# </div>
-
-# <% end %>
