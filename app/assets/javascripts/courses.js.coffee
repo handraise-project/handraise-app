@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 $(document).ready ->
   if $(".course-name").val().length == 0
     $(".course-submit").attr "disabled", "disabled"
@@ -12,3 +11,5 @@ $(document).ready ->
       $( ".course-submit" ).removeAttr "disabled"
     else
       $(".course-submit").attr "disabled", "disabled"
+
+
