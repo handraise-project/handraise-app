@@ -3,13 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  if $(".course-name").val().length == 0
-    $(".course-submit").attr "disabled", "disabled"
+  $("#course-submit").length
+  $("#course-submit").attr "disabled", "disabled"
 
-  $(".course-name").keyup ->  
-    if $(".course-name").val().length > 0
-      $( ".course-submit" ).removeAttr "disabled"
+  $("#course-name").keyup ->  
+    if $("#course-name").val().length > 0
+      $( "#course-submit" ).removeAttr "disabled"
     else
-      $(".course-submit").attr "disabled", "disabled"
+      $("#course-submit").attr "disabled", "disabled"
 
 

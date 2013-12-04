@@ -8,9 +8,9 @@
 
 <%= form_for @course, :html => {:role => "form"}  do |f| %>
   <div class="form-group">
-  <%= f.text_field :name, placeholder:"Course Name", class:"form-control course-name", :autofocus => true %>
+  <%= f.text_field :name, placeholder:"Course Name", class:"form-control course-name", :autofocus => true, :id => "course-name" %>
   </div>
-  <%= f.submit class:"btn btn-primary course-submit" %>
+  <%= f.submit class:"btn btn-primary course-submit", :id => "course-submit" %>
 <% end %>
 
   

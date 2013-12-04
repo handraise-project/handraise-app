@@ -1,8 +1,8 @@
 <p><%= display_gravatar(current_user) %> <%= display_name(current_user)%>:</p>
 <%= form_for @response, :url => add_response_path(@course,@issue), :html => {:role => "form", id:"add_response"} do |f| %>
 <div class="form-group">
-  <%= f.text_area :description, class:"form-control reply-description", placeholder:"Add a reply..."  %>
+  <%= f.text_area :description, class:"form-control reply-description", placeholder:"Add a reply...", :id => "reply-description"  %>
   <p class="errors"><%= @response.errors.messages[:description][0] %></p>
   </div>
-  <%= f.submit "Reply", class:"btn btn-primary reply-submit" %>
+  <%= f.submit "Reply", class:"btn btn-primary reply-submit", :id => "reply-submit" %>
 <% end %>

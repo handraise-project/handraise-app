@@ -4,7 +4,7 @@
 
 <%= form_for [@course, @issue], :html => {:role => "form"}  do |f| %>
   <div class="form-group">
-  <%= f.text_field :title, placeholder:"Title", class:"form-control issue-title", :autofocus => true %>
+  <%= f.text_field :title, placeholder:"Title", class:"form-control issue-title", :autofocus => true, :id => "issue-title" %>
   <p class="errors"><%= @issue.errors.messages[:title][0] %></p>
   </div>
   <div class="form-group">
@@ -19,6 +19,6 @@
   <%= f.radio_button :anonymous, :false %>   
   <%= f.label :anonymous, "Display my name", :value => 'false' %>
    </div>
-  <%= f.submit class:"btn btn-primary issue-submit" %>
+  <%= f.submit class:"btn btn-primary issue-submit", :id => "issue-submit" %>
 <% end %>
   
