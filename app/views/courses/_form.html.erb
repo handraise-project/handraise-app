@@ -1,9 +1,10 @@
-<div class="errors">
-  <% if @course.errors.any? %>
-  <%= @course.errors.first[1] %>
-  <br><br>
-  <% end %>
-</div>
+<% if @course.errors.any? %>
+  <div class="errors">
+    <%= @course.errors.first[1] %>
+    <br><br>
+  </div>
+<% end %>
+
 
 <%= form_for @course, :html => {:role => "form"}  do |f| %>
   <div class="form-group">
