@@ -2,6 +2,7 @@
 <%= form_for @response, :url => add_response_path(@course,@issue), :html => {:role => "form", id:"add_response"} do |f| %>
 <div class="form-group">
   <%= f.text_area :description, class:"form-control reply-description", placeholder:"Add a reply...", :id => "reply-description"  %>
+  <p class="help-text">Some HTML tags allowed.  Insert code snippets using pre tags, eg <span class="code-sample">&#60;pre&#62;a code snippet&#60;/pre&#62;</span>.</p>
   <p class="errors"><%= @response.errors.messages[:description][0] %></p>
   </div>
   <%= f.submit "Reply", class:"btn btn-primary reply-submit", :id => "reply-submit" %>

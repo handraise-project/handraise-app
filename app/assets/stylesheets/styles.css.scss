@@ -227,8 +227,10 @@ footer {
   color: red;
 }
 .help-text {
+  margin-top: 3px;
+
   color:$light-gray;
-  font-size: 11px;
+  font-size: 12px;
   .code-sample {
     font-family: monospace;
   }
