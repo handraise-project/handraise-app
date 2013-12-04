@@ -20,8 +20,13 @@
     <% end %>
   </ul>
   <% else %>
-  <p class="no-items">No courses have been added :-/ 
-    <%= link_to "Add one now?", new_course_path %></p>
+  <p class="no-items">No courses have been added :-/
+    <% if current_user.admin %>
+      <%= link_to "Add one now?", new_course_path, :class => "add-one" %>
+    <% else %>
+      Please ask an instructor to add your course.
+    <% end %>
+    </p>
     <% end %>
   </div>
 </div>

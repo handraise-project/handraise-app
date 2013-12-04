@@ -98,8 +98,13 @@ footer {
 
 .no-items {
   color: $medium-gray;
-  font-size: smaller;
+  //font-size: smaller;
   font-style: italic;
+
+  .add-one {
+    margin-left: 5px;
+    font-style: normal;
+  }
 }
 
 .list-header, .form-header {

@@ -7,6 +7,13 @@
 
 <div class="row">
   <div class="col-sm-12">
+  <% if @unresolved_issues.any? %>
   <%= render 'unresolved_issues' %>
+   <% else %>
+  <p class="no-items">No issues yet. 
+  <% if !current_user.admin %>
+    <%= link_to "Add one now?", new_course_issue_path(@course), :class => "add-one" %>
+    <% end %></p>
+    <% end %>
   </div>
 </div>
