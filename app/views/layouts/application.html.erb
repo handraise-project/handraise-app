@@ -2,7 +2,7 @@
 <html>
 <head>
 <% #TODO: extract into method %>
-  <title><%= @course ? "#{@course.name}" : "Issue Queue" %></title>
+  <title><%= @course && @course.persisted? ? "#{@course.name}" : "Issue Queue" %></title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>

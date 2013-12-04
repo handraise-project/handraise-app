@@ -1,3 +1,10 @@
+<div class="errors">
+  <% if @course.errors.any? %>
+  <%= @course.errors.first[1] %>
+  <br><br>
+  <% end %>
+</div>
+
 <%= form_for @course, :html => {:role => "form"}  do |f| %>
   <div class="form-group">
   <%= f.text_field :name, placeholder:"Course Name", class:"form-control course-name", :autofocus => true %>
