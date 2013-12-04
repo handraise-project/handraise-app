@@ -26,13 +26,13 @@
 
   def show
     if current_user.admin
-      @unresolved_issues = @course.issues.order('created_at DESC').unresolved.not_queued
-      @instructor_queue = @course.issues.order('created_at DESC').in_instructor_queue(current_user).unresolved.not_archived
+      @unresolved_issues = @course.issues.order('created_at ASC').unresolved.not_queued
+      @instructor_queue = @course.issues.order('created_at ASC').in_instructor_queue(current_user).unresolved.not_archived
     else
-      @unresolved_issues = @course.issues.order('created_at DESC').unresolved
+      @unresolved_issues = @course.issues.order('created_at ASC').unresolved
     end
 
-    @resolved_issues = @course.issues.order('created_at DESC').resolved.not_archived
+    @resolved_issues = @course.issues.order('created_at ASC').resolved.not_archived
     
   end
 
