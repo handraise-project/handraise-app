@@ -1,0 +1,15 @@
+<li>
+  <%= link_to course_issue_path @course, issue do %>
+  <button>
+    <p class="issue-title"><%= issue.title.capitalize %></p>
+    <p> <span class="issue-poster-name"><%= issue_poster_name(issue) %></span>, <%= time_ago_in_words(issue.created_at, :seconds => true ) %> ago <% if issue.responses.count > 0 %>
+      <span class="label label-default">
+        <span class="glyphicon glyphicon-comment">
+        </span>
+        <%= pluralize(issue.responses.count, 'Reply') %>
+      </span>
+      <% end %>
+    </p>     
+  </button>
+  <% end %>
+</li>

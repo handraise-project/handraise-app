@@ -27,8 +27,8 @@ module Course::IssuesHelper
 
   def format_and_sanitize_text(text)
     add_links = auto_link(text, :sanitize => false)
-    add_formatting = simple_format(add_links, {}, :sanitize => false)
-    remove_unsafe_markup = sanitize(add_formatting, :tags => %w(p pre a)).html_safe
+    add_formatting = simple_format(add_links, {}, :sanitize => false).html_safe 
+    #remove_unsafe_markup = sanitize(add_formatting, :tags => %w(p pre a % %= tr td @))
   end
 
 
