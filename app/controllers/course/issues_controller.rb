@@ -55,6 +55,10 @@ class Course::IssuesController < ApplicationController
     redirect_to @course, :notice => "Issue removed from #{current_user.name}'s queue"
   end
 
+  def queue_item #may just point to add_to_queue
+    binding.pry
+  end
+  
   private
   def set_issue
     @issue = Issue.find_by(:id => params[:id])

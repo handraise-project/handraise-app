@@ -1,7 +1,10 @@
+
 <ul class="issues-list">
   <% @unresolved_issues.each do |issue| %>
-    <% if !issue.archived? %>
-      <%= render 'issue_button_link', :issue => issue %>
+    <% if !issue.archived? && current_user.admin %>
+        <%= render 'issue_button_link', :issue => issue %>
+    <% else %>
+        <%= render 'issue_button_link', :issue => issue %>
     <% end %>
   <% end %>
 </ul>

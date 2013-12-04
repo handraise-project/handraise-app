@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'dotenv-rails'
 gem 'faker'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'rails_autolink'
 gem 'whenever', :require => false
 gem 'octokit'

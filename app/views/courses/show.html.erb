@@ -1,7 +1,12 @@
 <% if current_user.admin %>
-  <%= render 'instructor_queue' %>
+  <div id="droppable" class="ui">
+    <%= render 'instructor_queue' %>
+  </div>
 <% end %>
 
+
 <%= render 'new_and_unresolved' %>
+
+
 
 <%= render 'resolved_issues' %>
