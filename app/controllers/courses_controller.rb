@@ -32,7 +32,7 @@
       @unresolved_issues = @course.issues.order('created_at DESC').unresolved
     end
 
-    @resolved_issues = @course.issues.order('created_at DESC')resolved.not_archived
+    @resolved_issues = @course.issues.order('created_at DESC').resolved.not_archived
     
   end
 
