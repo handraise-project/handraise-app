@@ -1,0 +1,10 @@
+<% if @current_user && @current_user.admin? %>
+  <%= link_to add_to_queue_path(@course,issue) do %>
+  <li>
+    <span class="label label-default">
+      <span class="glyphicon glyphicon-plus-sign"></span>
+      Enqueue
+      </span>
+  </li>
+  <% end %>
+<% end %>

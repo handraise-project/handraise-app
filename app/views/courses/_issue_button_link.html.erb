@@ -8,6 +8,7 @@
       <% if issue.responses.count > 0 %>
         <%= render 'issue_responses_reply_count', :count => issue.responses.count %>
       <% end %>
+      <%= render 'enqueue_button', :issue => issue if @current_user.admin? %>
     </ul>
 </button>
 <% end %>
