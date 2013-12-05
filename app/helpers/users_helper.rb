@@ -8,9 +8,9 @@ module UsersHelper
 
   def display_gravatar(user)
     if user.image_gravatar.blank?
-      gravatar_image_tag('junk', :alt => 'Github Default Gravatar', :class => 'gravatar', :gravatar => { :default => :wavatar })
+      gravatar_image_tag('user.email', :alt => 'user.name', :class => 'gravatar', :gravatar => { :default => :wavatar })
     else
-      image_tag(current_user.image_gravatar, :alt => "#{current_user.name}", class:"gravatar")
+      image_tag(user.image_gravatar, :alt => 'user.name', :class => "gravatar")
     end
   end
 end
