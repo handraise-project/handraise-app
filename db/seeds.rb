@@ -125,3 +125,21 @@ issue7.user_id = student7.id
 issue7.title = "sinatra routing errors"
 issue7.created_at = random_recent_past
 issue7.save
+
+
+issue8 = course1.issues.new
+issue8.user_id = student8.id
+issue8.title = "How do I customize error messages in Rails?"
+issue8.description = <<-LONG_DESCRIPTION
+This is what I'm trying and getting the message "Song Rep XYW can't be empty":<pre>
+validates_presence_of :song_rep_xyz, :message => "can't be empty"</pre>
+LONG_DESCRIPTION
+
+issue8.created_at = random_recent_past
+issue8.save
+
+issue9 = course1.issues.new
+issue9.user_id = student9.id
+issue9.title = "Rails server error - server cannot start"
+issue9.created_at = random_recent_past
+issue9.save
