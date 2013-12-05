@@ -20,8 +20,17 @@ def random_recent_past
    DateTime.now - rand(0..30).minutes - rand(0..60).seconds
 end
 
-course1 = Course.create(:name => "Ruby 003 (Fall 2013)")
-course2 = Course.create(:name => "iOS 000 (Fall 2013)")
+if Course.find(1)
+  course1 = Course.find(1)
+else
+  course1 = Course.create(:name => "Ruby 003 (Fall 2013)")
+end
+
+if Course.find(2)
+  course2 = Course.find(2)
+else
+  course2 = Course.create(:name => "iOS 000 (Fall 2013)")
+end
 
 student1 = FactoryGirl.create(:student)
 student2 = FactoryGirl.create(:student)
