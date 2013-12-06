@@ -15,11 +15,11 @@ module Course::IssuesHelper
   end
 
   def issue_name(issue)
-    content_tag(:li, "#{issue_poster_name(issue)}", :class => "issue-name")
+    content_tag(:li, "#{issue_poster_name(issue)}", :class => "issue-poster-name")
   end
 
   def issue_time_ago(issue)
-    content_tag(:li, "#{time_ago_in_words(issue.created_at, :seconds => true )} ago")
+    content_tag(:li, "#{time_ago_in_words(issue.created_at, :seconds => true )} ago", :class => "issue-time-ago")
   end
 
   def issue_name_and_time_ago(issue)

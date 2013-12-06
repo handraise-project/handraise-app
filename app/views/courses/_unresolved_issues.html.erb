@@ -9,9 +9,7 @@
     <% if @unresolved_issues.any? %>
       <ul class="issues-list">
         <% @unresolved_issues.each do |issue| %>
-          <% if !issue.archived? %>
-            <%= render 'issue_link', :issue => issue %>
-          <% end %>
+            <%= render 'issue_link', :issue => issue if !issue.archived? %>
         <% end %>
       </ul>
     <% else %>

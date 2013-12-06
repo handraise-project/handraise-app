@@ -1,4 +1,3 @@
-<% if issue.instructor_id != current_user.id %>
  <li>
   <%= link_to add_to_queue_path(@course,issue) do %>
     <span class="label label-success">
@@ -7,4 +6,3 @@
       </span>
   <% end %>
    </li>
-<% end %>

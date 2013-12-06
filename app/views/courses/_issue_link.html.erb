@@ -7,7 +7,7 @@
       <%= issue_time_ago(issue) %>
       <%= added_to_instructor_queue(issue) %>
       <%= render 'issue_responses', :count => issue.responses.count if issue.responses.any? %>
-      <%= render 'enqueue_button', :issue => issue if @current_user.admin? %>
+        <%= render 'enqueue_issue', :issue => issue if @current_user.admin? && issue.instructor_id != current_user.id %>
     </ul>
 </button>
 <% end %>
