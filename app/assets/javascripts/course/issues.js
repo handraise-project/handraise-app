@@ -1,6 +1,7 @@
     $(function() {
       $('input[type=button], .draggable').draggable({
-        cancel:false
+        cancel: false,
+        revert: "invalid"
         // revert: true,
         //snap: '#droppable'
 

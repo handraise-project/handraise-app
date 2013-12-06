@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
-//= require timeago
 //= require twitter/bootstrap
 //= require_tree .
