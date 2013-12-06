@@ -1,20 +1,3 @@
-# == Schema Information
-#
-# Table name: issues
-#
-#  id            :integer          not null, primary key
-#  description   :text
-#  resolved      :integer          default(0)
-#  user_id       :integer
-#  created_at    :datetime
-#  updated_at    :datetime
-#  title         :string(255)
-#  anonymous     :boolean          default(FALSE)
-#  course_id     :integer
-#  instructor_id :integer
-#  archived      :boolean          default(FALSE)
-#
-
 class Issue < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
@@ -32,6 +15,7 @@ class Issue < ActiveRecord::Base
   end
 
   def resolve!
+    self.instructor_id = nil
     self.resolved = 1
     self.save
   end

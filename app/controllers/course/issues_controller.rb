@@ -64,7 +64,7 @@ class Course::IssuesController < ApplicationController
     # end
     
     # json_issue = 
-    render json: @course.issues.in_instructor_queue(current_user).to_json(include: :user)
+      render json: @course.issues.in_instructor_queue(current_user).not_archived.unresolved.to_json(include: :user) 
   end
   
   private
