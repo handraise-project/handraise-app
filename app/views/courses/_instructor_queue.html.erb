@@ -8,7 +8,7 @@
 <% else %>
 
 <ul class="issues-list" id="instructor_refresh">
-  <% @instructor_queue.each do |issue| %>
+  <% @instructor_queue.reverse.each do |issue| %>
     <%= render 'issue_button_link', :issue => issue %>
   <% end %>
 </ul>
