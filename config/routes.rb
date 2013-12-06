@@ -5,6 +5,7 @@
   end
 
   post 'courses/:course_id/issues/:id/queue' => 'course/issues#queue_item', as: 'queue_item'
+  post 'courses/:course_id/refresh' => 'courses#refresh'
 
 
   get 'courses/:course_id/issues/:id/resolve' => 'course/issues#resolve', :as => 'resolve_issue'

@@ -1,5 +1,5 @@
   class CoursesController < ApplicationController
-  before_filter :set_course, only: [:show, :edit, :update, :add_to_queue, :remove_from_queue, :show_archive]
+  before_filter :set_course, only: [:show, :edit, :update, :add_to_queue, :remove_from_queue, :show_archive, :refresh]
 
   def index
     if current_user.primary_course_id
@@ -65,6 +65,15 @@
   def show_archive
     @course = Course.find_by(id: params["course_id"])
     @archived_issues = Issue.where(course_id: params["course_id"]).where(archived: true)
+  end
+
+  def refresh
+    if current_user.admin = true
+     @course = Course.find(params["course_id"])
+     @issues = Issue.where(course_id: @course.id)
+     render json: @course.issues.in_instructor_queue(current_user).to_json(include: :user) 
+    end
+
   end
 
   private
