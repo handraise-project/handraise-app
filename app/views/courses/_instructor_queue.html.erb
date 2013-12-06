@@ -3,13 +3,12 @@
       <h1><%= display_name(current_user) %>'s Queue</h1>
     </div>
   </div>
-<% if @instructor_queue.count == 0 %>
-  <p class="no-items">There are currently no items in your queue.</p>
-<% else %>
-
+<% if @instructor_queue.any? %>
 <ul class="issues-list issues-list-instructor">
   <% @instructor_queue.each do |issue| %>
-    <%= render 'instructor_issue_button_link', :issue => issue %>
+  <%= render 'issue_link', :issue => issue %>
   <% end %>
 </ul>
+<% else %>
+  <p class="no-items">There are currently no items in your queue.</p>
 <% end %>
