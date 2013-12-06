@@ -13,7 +13,7 @@
           var finaldest = destination + "/queue";
           $.post(finaldest, function(data) {
             //window.location.reload();
-            console.log(data);
+            //console.log(data);
             $("#instructor_refresh").empty();
             $(self).remove();
             $.each(data, function(i, issue){
@@ -21,8 +21,8 @@
                              '<a href="/courses/'+issue.course_id+'/issues/'+issue.id+'">'+
                              '<button class="draggable ui ui-draggable ui-draggable-dragging">'+
                              '<span class="issue-title">'+issue.title+'</span>'+
-                             '<ul class="meta-info">'+
-                             '<li>'+issue.user.name+', Date Goes Here </li>'+
+                             '<ul class="meta-info">'+ 
+                             '<li>'+issue.user.name+',' + issue.time_as_words + '</li>'+
                              '</ul>'+
                              '</button>'+
                              '</a></li>';

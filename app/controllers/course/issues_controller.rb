@@ -17,7 +17,6 @@ class Course::IssuesController < ApplicationController
 
   def create
     @issue = @course.add_issue(current_user, issue_params)
-
     if @issue.save
       redirect_to @course, :notice => "Added an issue!"
     else
@@ -58,13 +57,11 @@ class Course::IssuesController < ApplicationController
   def queue_item
     @issue.instructor_id = current_user.id
     @issue.save
-   
-    # @course.issues.in_instructor_queue(current_user).each do |issue|
-    #   issue.created_at
-    # end
-    
-    # json_issue = 
-      render json: @course.issues.in_instructor_queue(current_user).not_archived.unresolved.to_json(include: :user) 
+    @course.issues.in_instructor_queue(current_user).each do |issue|
+      issue.time_words
+      issue.save
+    end
+    render json: @course.issues.in_instructor_queue(current_user).not_archived.unresolved.to_json(include: :user) 
   end
   
   private

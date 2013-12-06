@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202175954) do
+ActiveRecord::Schema.define(version: 20131206165902) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20131202175954) do
     t.integer  "course_id"
     t.integer  "instructor_id"
     t.boolean  "archived",      default: false
+    t.string   "time_as_words"
   end
 
   add_index "issues", ["course_id"], name: "index_issues_on_course_id"
