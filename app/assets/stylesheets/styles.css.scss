@@ -53,6 +53,14 @@ footer {
   }
 }
 
+// META INFO
+// Eg info about an issue, such as author or date-time posted
+// ----------------------------
+.meta-info {
+  //font-size:x-small;
+  color:$light-gray;  
+}
+
 // APP BRAND
 // ----------------------------
 
@@ -126,6 +134,9 @@ footer {
   padding-left:0;
 
   li {
+     a:hover {
+        text-decoration: none;
+      }
 
     button {
       padding:5px 10px;
@@ -153,17 +164,26 @@ footer {
         list-style:none;
         //font-size:  12px;
 
+         a li.issue-time-ago {
+            color:$light-gray;
+          }
+
         li {
           display: inline-block;
           border: none;
           padding:2px 0 0 0;          
-          background-color:inherit;
+          background-color:inherit;         
         }
       }
     }
   }
 }
 
+.issues-list-instructor {
+  .issue-poster-name {
+    color: $link-color;
+  }
+}
 
 // ISSUE DESCRIPTION
 // ----------------------------
@@ -213,13 +233,7 @@ footer {
    }
 }
 
-// META INFO
-// Eg info about an issue, such as author or date-time posted
-// ----------------------------
-.meta-info {
-  //font-size:x-small;
-  color:$light-gray;  
-}
+
 
 // FORMS
 // ----------------------------
@@ -293,9 +307,14 @@ footer {
         
         li {
             padding-left:0;
+
+          .issue-title, .course-title {
+        color: $link-color;
+      }
             button {
               padding-left: 0;
             }
+
         }
       }
     }
@@ -311,7 +330,9 @@ footer {
     font-size: 1.5em;
   }
   .issue-poster-name {
-    font-size: 1.25em;
+    font-size: 1.5em;
+    color: $link-color;
+
   }
 
 }  // end iphone

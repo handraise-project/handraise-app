@@ -1,7 +1,4 @@
-<% if current_user.admin %>
-  <%= render 'instructor_queue' %>
-<% end %>
-
-<%= render 'new_and_unresolved' %>
-
-<%= render 'resolved_issues' %>
+<%= render 'instructor_queue' if current_user.admin %>
+<%= render 'unresolved_issues' %>
+<%  %>
+<%= render 'resolved_issues' if @resolved_issues.any? %>

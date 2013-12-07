@@ -1,24 +1,25 @@
-<% if @resolved_issues.any? %>
-  <div class="row list-header">
-      <div class="col-sm-12">
-        <h1>Resolved Issues</h1>
-      </div>
+<div class="row list-header">
+    <div class="col-sm-12">
+      <h1>Resolved Issues</h1>
     </div>
-  <ul class="issues-list">
-    <% @resolved_issues.each do |issue| %>
-      <li>
-        <%= link_to course_issue_path(@course, issue) do %>
-          <button>
-            <span class="issue-title"><%= issue.title.capitalize %></span>
-            <ul class="meta-info">
-              <%= issue_name_and_time_ago(issue) %>
-              <% if issue.responses.count > 0 %>
-                <%= render 'issue_responses_reply_count', :count => issue.responses.count %>
-              <% end %>
-            </ul>
-          </button>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+  </div>
+  <div class="row">
+  <div class="col-sm-12">
+<ul class="issues-list">
+  <% @resolved_issues.each do |issue| %>
+    <li>
+      <%= link_to course_issue_path(@course, issue) do %>
+        <button>
+          <span class="issue-title"><%= issue.title.capitalize %></span>
+          <ul class="meta-info">
+            <%= issue_name_and_time_ago(issue) %>
+            <%= render 'issue_responses', :count => issue.responses.count if issue.responses.any? %>
+          </ul>
+        </button>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+ </div>
+</div>
+

@@ -1,0 +1,14 @@
+<li>
+<%= link_to course_issue_path @course, issue do %>
+<button>
+  <span class="issue-title"><%= issue.title.capitalize %></span>
+    <ul class="meta-info">
+      <%= issue_name(issue) %>
+      <%= issue_time_ago(issue) %>
+      <%= added_to_instructor_queue(issue) %>
+      <%= render 'issue_responses', :count => issue.responses.count if issue.responses.any? %>
+        <%= render 'enqueue_issue', :issue => issue if @current_user.admin? && issue.instructor_id != current_user.id %>
+    </ul>
+</button>
+<% end %>
+</li>
