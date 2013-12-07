@@ -18,6 +18,7 @@ gem 'omniauth-github', :git => 'git://github.com/intridea/omniauth-github.git'
 gem 'gravatar_image_tag'
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
 gem 'coderay'
+gem "letter_opener", :group => :development
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

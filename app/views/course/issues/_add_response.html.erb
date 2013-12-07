@@ -5,5 +5,12 @@
   <p class="help-text">Some HTML tags allowed.  Insert code snippets using pre tags, eg <span class="code-sample">&#60;pre&#62;a code snippet&#60;/pre&#62;</span>.</p>
   <p class="errors"><%= @response.errors.messages[:description][0] %></p>
   </div>
+  <div class="form-group">
+  </div>
+  <label><%# check_box 
+
+#Notify me when others respond.
+
+  %></label>
   <%= f.submit "Reply", class:"btn btn-primary reply-submit", :id => "reply-submit" %>
 <% end %>
