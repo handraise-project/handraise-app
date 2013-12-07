@@ -29,11 +29,7 @@ config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
     authentication: "plain",
     user_name: ENV["DEVMAIL_USERNAME"],
     password: ENV["DEVMAIL_PASSWORD"]
-    #enable_starttls_auto: true
   }
-
-
-
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
