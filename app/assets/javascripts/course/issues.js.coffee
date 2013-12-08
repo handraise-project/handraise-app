@@ -4,8 +4,8 @@
 
 
 $(document).ready ->
-  $("#issue-submit").length
-  $("#issue-submit").attr "disabled", "disabled"
+  if $("#issue-title").val().length > 0
+    $( "#issue-submit" ).removeAttr "disabled"
 
   $("#issue-title").keyup ->  
     if $("#issue-title").val().length > 0
