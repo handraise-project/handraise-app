@@ -48,14 +48,8 @@ class Issue < ActiveRecord::Base
     self.archived
   end
 
-  # # build an association with issue_notification, in which I set if this user
-  # # wants to notified re this issue to true or false
-
-  # def notifications(user,issue_hash, notify_selection)
-  #   notify = self.issues.build(issue_hash)
-  #   issue.user_notifications(user, issue).notify = notify_selection
-  #   issue
-  #   #returns an unsaved issue, so that the controller can attempt to save it, and then see if there are any errors
-  # end
+  def notify_preference
+     self.user_notifications.where(:user_id => self.user_id, :issue_id => self.id).first.notify
+  end
 
 end

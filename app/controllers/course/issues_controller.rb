@@ -36,11 +36,14 @@ class Course::IssuesController < ApplicationController
 
   def update
     @issue.update(issue_params)
+    @user_notification = @issue.user_notifications.where(:user_id => @issue.user_id, :issue_id => @issue.id).first
 
-    if @issue.save
+    @user_notification.notify = params[:issue][:notify]
+
+    if @issue.save && @user_notification.save
       redirect_to course_issue_path(@course, @issue), :notice => "Updated the issue: \"#{@issue.title}\""
     else
-      render :edit, :notice => "Error"
+      render :edit, :notice => "Oops, looks like there was an error :-/"
     end
   end
 
