@@ -31,14 +31,15 @@ config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
   #   password: ENV["DEVMAIL_PASSWORD"]
   # }
 
-  config.action_mailer.smtp_settings = {
+    config.action_mailer.smtp_settings = {
       :port =>           '587',
       :address =>        'smtp.mandrillapp.com',
       :user_name =>      ENV['MANDRILL_USERNAME'],
       :password =>       ENV['MANDRILL_APIKEY'],
       :domain =>         'heroku.com',
       :authentication => :plain
-  }
+    }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

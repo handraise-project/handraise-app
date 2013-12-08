@@ -18,6 +18,7 @@
 class User < ActiveRecord::Base
   has_many :issues
   has_many :responses
+  has_many :user_notifications
 
   #listed by their github username
   #TODO: move this into db and/or more secure/robust solution
@@ -28,8 +29,6 @@ class User < ActiveRecord::Base
     "scottcreynolds",
     "aviflombaum"
   ]
-
-  
 
   def self.find_or_create_by_omniauth(auth)
     User.find_by(:provider => auth["provider"], :uid => auth["uid"]) || User.create_from_omniauth(auth)
@@ -51,5 +50,16 @@ class User < ActiveRecord::Base
   def display_name
     self.name || self.github_name
   end
+
+  def self.notify?(issue)
+    # check to see if user opted to be notified
+    # might want to set notify to true as default
+    # pass self.id and issue_id and get back notify
+    #UserNotification.find(self).notify
+  end
+
+  # def self.notify(issue)
+  #   #set notify preference for an issue
+  # end
   
 end

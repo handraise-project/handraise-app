@@ -11,13 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202175954) do
+ActiveRecord::Schema.define(version: 20131208031345) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "delayed_jobs", force: true do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "issues", force: true do |t|
     t.text     "description"
@@ -45,6 +61,12 @@ ActiveRecord::Schema.define(version: 20131202175954) do
 
   add_index "responses", ["issue_id"], name: "index_responses_on_issue_id"
   add_index "responses", ["user_id"], name: "index_responses_on_user_id"
+
+  create_table "user_notifications", force: true do |t|
+    t.boolean "notify"
+    t.integer "user_id"
+    t.integer "issue_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

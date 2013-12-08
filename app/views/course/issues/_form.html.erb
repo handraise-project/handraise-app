@@ -3,22 +3,28 @@
 </div>
 
 <%= form_for [@course, @issue], :html => {:role => "form"}  do |f| %>
-  <div class="form-group">
+<div class="form-group">
   <%= f.text_field :title, placeholder:"Title", class:"form-control issue-title", :autofocus => true, :id => "issue-title" %>
   <p class="errors"><%= @issue.errors.messages[:title][0] %></p>
-  </div>
-  <div class="form-group">
+</div>
+<div class="form-group">
   <%= f.text_area :description, placeholder:"Description (optional)", class:"form-control", rows:"4" %>
- <p class="help-text">Some HTML tags allowed.  Insert code snippets using pre tags, eg <span class="code-sample">&#60;pre&#62;a code snippet&#60;/pre&#62;</span>.</p>
-  </div>
-  <div class="radio"> 
+  <p class="help-text">Some HTML tags allowed.  Insert code snippets using pre tags, eg <span class="code-sample">&#60;pre&#62;a code snippet&#60;/pre&#62;</span>.</p>
+</div>
+<div class="radio"> 
   <%= f.radio_button :anonymous, :true, :checked => true %>
   <%= f.label :anonymous, "Post anonymously", :value => 'true' %>
-  </div>
-   <div class="radio">
+</div>
+<div class="radio">
   <%= f.radio_button :anonymous, :false %>   
   <%= f.label :anonymous, "Display my name", :value => 'false' %>
-   </div>
-  <%= f.submit class:"btn btn-primary issue-submit", :id => "issue-submit" %>
+</div>
+
+<div class="checkbox">
+  <%= f.label :notify do %>
+<%= f.check_box :notify, { :checked=>  (@issue.notify_preference ? true :false)  } %>
+  Notify me when someone replies to this post.
+  <% end %>
+</div>
+<%= f.submit class:"btn btn-primary issue-submit", :id => "issue-submit" %>
 <% end %>
-  

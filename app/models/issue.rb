@@ -19,6 +19,8 @@ class Issue < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
   has_many :responses
+  has_many :user_notifications
+  
   validates_presence_of :title, message: "Issues Must Have A Title."
   scope :resolved, -> { where(:resolved => 1) }
   scope :unresolved, -> { where(:resolved => 0) }
@@ -44,6 +46,10 @@ class Issue < ActiveRecord::Base
   
   def archived?
     self.archived
+  end
+
+  def notify_preference
+     self.user_notifications.where(:user_id => self.user_id, :issue_id => self.id).first.notify
   end
 
 end

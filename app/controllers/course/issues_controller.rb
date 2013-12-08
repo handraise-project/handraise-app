@@ -18,10 +18,16 @@ class Course::IssuesController < ApplicationController
   def create
     @issue = @course.add_issue(current_user, issue_params)
 
+    @issue.user_notifications.build(
+      :notify => params[:issue][:notify],
+      :user_id => current_user.id,
+      :issue_id => @issue.id
+      )
+
     if @issue.save
-      redirect_to @course, :notice => "Added an issue!"
+      redirect_to @course, :notice => "Added the issue \"#{@issue.title}\""
     else
-      render :new, :notice => "Errors!"
+      render :new, :notice => "Oops, look like something went wrong :-/"
     end
   end
 
@@ -30,11 +36,14 @@ class Course::IssuesController < ApplicationController
 
   def update
     @issue.update(issue_params)
+    @user_notification = @issue.user_notifications.where(:user_id => @issue.user_id, :issue_id => @issue.id).first
 
-    if @issue.save
-      redirect_to course_issue_path(@course, @issue), :notice => "Updated"
+    @user_notification.notify = params[:issue][:notify]
+
+    if @issue.save && @user_notification.save
+      redirect_to course_issue_path(@course, @issue), :notice => "Updated the issue: \"#{@issue.title}\""
     else
-      render :edit, :notice => "Error"
+      render :edit, :notice => "Oops, looks like there was an error :-/"
     end
   end
 
