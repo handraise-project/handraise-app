@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
     "aviflombaum"
   ]
 
-  
   def self.find_or_create_by_omniauth(auth)
     User.find_by(:provider => auth["provider"], :uid => auth["uid"]) || User.create_from_omniauth(auth)
   end
