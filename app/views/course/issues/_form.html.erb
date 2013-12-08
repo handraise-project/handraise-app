@@ -19,12 +19,11 @@
   <%= f.radio_button :anonymous, :false %>   
   <%= f.label :anonymous, "Display my name", :value => 'false' %>
 </div>
-
-<div class="checkbox">
-  <%= f.label :notify do %>
-<%= f.check_box :notify, { :checked=>  (@issue.notify_preference ? true :false)  } %>
-  Notify me when someone replies to this post.
-  <% end %>
-</div>
+  <div class="checkbox">
+    <%= f.label :notify do %>
+      <%= f.check_box :notify, { :checked=>  (@issue.notify_preference ? true :false)  } %>
+      Notify me when someone replies to this post.
+    <% end %>
+  </div>
 <%= f.submit class:"btn btn-primary issue-submit", :id => "issue-submit" %>
 <% end %>

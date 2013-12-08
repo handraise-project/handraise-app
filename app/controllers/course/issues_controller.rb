@@ -13,6 +13,7 @@ class Course::IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
+    @user_notification = UserNotification.new
   end
 
   def create

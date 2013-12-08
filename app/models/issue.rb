@@ -49,7 +49,7 @@ class Issue < ActiveRecord::Base
   end
 
   def notify_preference
-     self.user_notifications.where(:user_id => self.user_id, :issue_id => self.id).first.notify
+    self.user_notifications.where(:user_id => self.user_id, :issue_id => self.id).first.notify
   end
 
 end
