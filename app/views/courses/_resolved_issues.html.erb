@@ -4,7 +4,7 @@
         <h1>Resolved Issues</h1>
       </div>
     </div>
-  <ul class="button-list">
+  <ul class="button-list" id="resolved_issue_refresh">
     <% @resolved_issues.each do |issue| %>
       <%= render 'resolved_issues_each', :issue => issue %>
     <% end %>

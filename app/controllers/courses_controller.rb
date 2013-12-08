@@ -71,7 +71,7 @@
     if current_user.admin = true
      @course = Course.find(params["course_id"])
      @issues = Issue.where(course_id: @course.id)
-     render json: @course.issues.in_instructor_queue(current_user).to_json(include: :user) 
+     render json: @course.issues.to_json(include: :user)
     end
 
   end

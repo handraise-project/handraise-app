@@ -1,5 +1,5 @@
 
-<ul class="issues-list">
+<ul class="issues-list" id="open_issue_refresh">
   <% @unresolved_issues.each do |issue| %>
     <% if !issue.archived? && current_user.admin %>
         <%= render 'issue_button_link', :issue => issue %>
