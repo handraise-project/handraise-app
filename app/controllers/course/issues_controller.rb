@@ -19,13 +19,19 @@ class Course::IssuesController < ApplicationController
   def create
     @issue = @course.add_issue(current_user, issue_params)
 
-    @issue.user_notifications.build(
-      :notify => params[:issue][:notify],
-      :user_id => current_user.id,
-      :issue_id => @issue.id
-      )
+    @user_notification = @issue.user_notifications.build(:user_id => @issue.user_id, :issue_id => @issue.id).first
 
-    if @issue.save
+    binding.pry
+
+
+    @user_notification.notify = params[:issue][:notify]
+
+    
+    # @user_notification = @issue.user_notifications.where(:user_id => @issue.user_id, :issue_id => @issue.id).first
+
+    # @user_notification.notify = params[:issue][:notify]
+
+    if @issue.save && @user_notification.save
       redirect_to @course, :notice => "Added the issue \"#{@issue.title}\""
     else
       render :new, :notice => "Oops, look like something went wrong :-/"

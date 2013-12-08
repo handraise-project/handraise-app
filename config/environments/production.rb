@@ -82,15 +82,6 @@ Handraise::Application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.default_url_options = { :host => 'iqueue.co' }
 
-  # config.action_mailer.smtp_settings = {
-  #   address: "smtp.gmail.com",
-  #   port: 587,
-  #   domain: "gmail.com",
-  #   authentication: "plain",
-  #   user_name: ENV["DEVMAIL_USERNAME"],
-  #   password: ENV["DEVMAIL_PASSWORD"]
-  # }
-
     config.action_mailer.smtp_settings = {
       :port =>           '587',
       :address =>        'smtp.mandrillapp.com',
