@@ -19,11 +19,6 @@
   <%= f.radio_button :anonymous, :false %>   
   <%= f.label :anonymous, "Display my name", :value => 'false' %>
    </div>
-   <div class="checkbox">
-    <label>
-      <%# f.checkbox reply-notify true %> <input type="checkbox"> Notify me when someone replies to this posting.
-    </label>
-  </div>
   <%= f.submit class:"btn btn-primary issue-submit", :id => "issue-submit" %>
 <% end %>
   
