@@ -5,7 +5,7 @@ class ResponsesController < ApplicationController
     @response = @issue.add_response(current_user, response_params)
 
     if @response.save
-      if @issue.notify_preference == true
+      if @issue.notify == 1 || @issue.notify == true
         IssueMailer.new_reply_notification(@issue, @response, current_user).deliver 
       end
       redirect_to course_issue_path(@issue.course, @issue), :notice => "Reply Posted!"

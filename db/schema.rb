@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208031345) do
+ActiveRecord::Schema.define(version: 20131208224239) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20131208031345) do
     t.integer  "course_id"
     t.integer  "instructor_id"
     t.boolean  "archived",      default: false
+    t.boolean  "notify"
   end
 
   add_index "issues", ["course_id"], name: "index_issues_on_course_id"

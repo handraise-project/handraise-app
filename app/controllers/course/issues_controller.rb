@@ -13,25 +13,15 @@ class Course::IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
-    @user_notification = UserNotification.new
+    #@user_notification = UserNotification.new
   end
 
   def create
     @issue = @course.add_issue(current_user, issue_params)
 
-    @user_notification = @issue.user_notifications.build(:user_id => @issue.user_id, :issue_id => @issue.id).first
+    @issue.notify = params[:issue][:notify]
 
-    binding.pry
-
-
-    @user_notification.notify = params[:issue][:notify]
-
-    
-    # @user_notification = @issue.user_notifications.where(:user_id => @issue.user_id, :issue_id => @issue.id).first
-
-    # @user_notification.notify = params[:issue][:notify]
-
-    if @issue.save && @user_notification.save
+    if @issue.save
       redirect_to @course, :notice => "Added the issue \"#{@issue.title}\""
     else
       render :new, :notice => "Oops, look like something went wrong :-/"
@@ -43,11 +33,11 @@ class Course::IssuesController < ApplicationController
 
   def update
     @issue.update(issue_params)
-    @user_notification = @issue.user_notifications.where(:user_id => @issue.user_id, :issue_id => @issue.id).first
+    # @user_notification = @issue.user_notifications.where(:user_id => @issue.user_id, :issue_id => @issue.id).first
 
-    @user_notification.notify = params[:issue][:notify]
+    @issue.notify = params[:issue][:notify]
 
-    if @issue.save && @user_notification.save
+    if @issue.save
       redirect_to course_issue_path(@course, @issue), :notice => "Updated the issue: \"#{@issue.title}\""
     else
       render :edit, :notice => "Oops, looks like there was an error :-/"
