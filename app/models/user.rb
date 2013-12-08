@@ -18,6 +18,7 @@
 class User < ActiveRecord::Base
   has_many :issues
   has_many :responses
+  has_many :user_notifications
 
   #listed by their github username
   #TODO: move this into db and/or more secure/robust solution

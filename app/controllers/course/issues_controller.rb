@@ -18,6 +18,8 @@ class Course::IssuesController < ApplicationController
   def create
     @issue = @course.add_issue(current_user, issue_params)
 
+    # if params notify = true, set issue.notify(user_id) = true
+
     if @issue.save
       redirect_to @course, :notice => "Added an issue!"
     else
