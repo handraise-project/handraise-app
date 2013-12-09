@@ -4,7 +4,9 @@
     </div>
   </div>
 <% if @instructor_queue.count == 0 %>
-  <p class="no-items">There are currently no items in your queue.</p>
+<ul class="issues-list" id="instructor_refresh">
+  <li class="no-items">There are currently no items in your queue.</li>
+</ul>
 <% else %>
 
 <ul class="issues-list" id="instructor_refresh">

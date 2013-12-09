@@ -1,4 +1,4 @@
-    $(function() {
+$(function() {
       $('input[type=button], .draggable').draggable({
         cancel: false, //allows button tags to be dragged
         revert: "invalid" //reverts invalid drops to initial position.
@@ -11,21 +11,21 @@
           var destination = ui.draggable.parent().attr('href');
           var finaldest = destination + "/queue";
           $.post(finaldest, function(data) {
-            refreshFunction();
+            refreshFunction(self);
           });
       }
     });
-     function refreshFunction(){
+     function refreshFunction(self){
      var url = window.location.href;
      var going = url + "/refresh";
         $.post(going, function(data) {
           //beginning of instructor queue
+            $(self).remove();
             $("#instructor_refresh").empty();
-            $(self).remove();
+            // $(self).remove();
             $("#open_issue_refresh").empty();
-            $(self).remove();
+            // $(self).remove();
             $("#resolved_issue_refresh").empty();
-            $(self).remove();
             $.each(data, function(i, issue){
               if(issue.instructor_id > 0 && issue.resolved === 0) {
                 var queue_content =  '<li class="draggable ui ui-draggable" >'+
@@ -40,6 +40,11 @@
                 $("#instructor_refresh").append(queue_content);
             };
             if (issue.instructor_id === null && issue.resolved === 0) {
+              $('input[type=button], .draggable').draggable({
+                  cancel: false, //allows button tags to be dragged
+                  revert: "invalid" //reverts invalid drops to initial position.
+              });
+
               var open_issues = '<li class="draggable ui">'+
                              '<a href="/courses/'+issue.course_id+'/issues/'+issue.id+'">'+
                              '<button class="draggable ui">'+
