@@ -1,6 +1,18 @@
-<h2>Archived Issues </h2>
-<ul class="issues-list">
-  <% @archived_issues.each do |issue| %>
-   <%= render 'issue_button_link', issue: issue %>
+<div class="row list-header">
+  <div class="col-sm-12">
+    <h1>Archived Issues </h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+  <% if @archived_issues.any? %>
+    <ul class="issues-list">
+      <% @archived_issues.each do |issue| %>
+      <%= render 'issue_link', issue: issue %>
+      <% end %>
+    </ul>
+  <% else %>
+     <p>There are currently no archived issues for <%= @course.name %>.</p>
   <% end %>
-</ul>
+  </div>
+</div>
