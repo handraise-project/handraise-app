@@ -1,5 +1,6 @@
 class IssueMailer < ActionMailer::Base
   include ActionView::Helpers::SanitizeHelper
+  include ActionView::Helpers::TextHelper
 
   default from: "help@iqueue.co"
 
@@ -8,10 +9,14 @@ class IssueMailer < ActionMailer::Base
   #
   #   en.issue_mailer.new_reply.subject
   #
+ # add_links = auto_link(text, :sanitize => false)
+ #    add_formatting = simple_format(add_links, {}, :sanitize => false).html_safe 
+
+
   def new_reply_notification(issue, response, current_user)
     @course_name_truncated = issue.course.name.split[0...2].join(' ')
     @issue_title = issue.title
-    @response_content_html = response.description
+    @response_content_html = simple_format(response.description, {}, :sanitize => false).html_safe
     @response_content_plain_text = strip_tags(response.description)
     @recipient = User.find(issue.user_id)
     @recipient_email = @recipient.email
