@@ -71,12 +71,17 @@
     if current_user.admin = true
      @course = Course.find(params["course_id"])
      @issues = Issue.where(course_id: @course.id)
-     render json: @course.issues.to_json(include: :user)
+     render json: @course.issues.to_json(include: [:user, :responses])
     end
 
   end
 
   private
+
+  def json_hash
+    #returns a hash with all the shit we want to go to javascript.
+  end
+
   def set_course
     @course = Course.find_by(:id => params[:id])
   end

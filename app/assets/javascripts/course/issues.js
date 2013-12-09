@@ -19,15 +19,15 @@ $(function() {
      var url = window.location.href;
      var going = url + "/refresh";
         $.post(going, function(data) {
+          console.log(data);
           //beginning of instructor queue
             $(self).remove();
             $("#instructor_refresh").empty();
-            // $(self).remove();
             $("#open_issue_refresh").empty();
-            // $(self).remove();
             $("#resolved_issue_refresh").empty();
             $.each(data, function(i, issue){
               if(issue.instructor_id > 0 && issue.resolved === 0) {
+                console.log(typeof issue.resolved);
                 var queue_content =  '<li class="draggable ui ui-draggable" >'+
                              '<a href="/courses/'+issue.course_id+'/issues/'+issue.id+'">'+
                              '<button class="draggable ui ui-draggable ui-draggable-dragging">'+
@@ -58,7 +58,7 @@ $(function() {
             }
             if (issue.resolved > 0) {
               var closed_issues = '<a href="/courses/'+issue.course_id+'/issues/'+issue.id+'">'+
-                                  '<li>'+issue.user.name+':'+issue.title+' ('+' responses)</li></a>';
+                                  '<li>'+issue.user.name+':'+issue.title+' ('+issue.responses.length+' response/s)</li></a>';
                 $("#resolved_issue_refresh").append(closed_issues);
             }
 
