@@ -160,7 +160,7 @@ footer {
         color: $link-color;
       }
       .course-title {
-        font-size: 16px;
+        font-size: 1.2em;
       }
 
       ul.meta-info {
@@ -314,7 +314,10 @@ footer {
 
           .issue-title, .course-title {
         color: $link-color;
-      }
+          }
+          .course-title {
+            font-size: 1.5em;
+          }
             button {
               padding-left: 0;
             }
@@ -330,7 +333,7 @@ footer {
     }
   }
 
-  .issue-title, .course-title {
+  .issue-title {
     font-size: 1.5em;
   }
   .issue-poster-name {
