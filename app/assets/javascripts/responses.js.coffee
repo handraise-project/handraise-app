@@ -4,11 +4,11 @@
 
 
 $(document).ready ->
-  $("#reply-submit").length
-  $("#reply-submit").attr "disabled", "disabled"  
+  if $("#reply-submit").length and $("#reply-description").length
+    $("#reply-submit").attr "disabled", "disabled"  
 
-  $("#reply-description").keyup ->  
-    if $("#reply-description").val().length > 0
-      $( "#reply-submit" ).removeAttr "disabled"
-    else
-      $("#reply-submit").attr "disabled", "disabled"
+    $("#reply-description").keyup ->  
+      if $("#reply-description").val().length > 0
+        $( "#reply-submit" ).removeAttr "disabled"
+      else
+        $("#reply-submit").attr "disabled", "disabled"
