@@ -1,6 +1,7 @@
 <p>Hi <%= @recipient_first_name %>,</p>
 <p><%= @respondent_name %> replied to <b><%= link_to @issue_title, @issue_link %></b>:</p>
 <p><%= @response_content_html %></p>
+<p style="font-size:smaller;">(View all replies: <%= link_to @issue_link, @issue_link %> )</p>
 <hr>
 <p>See you soon!</p>
 <p>--The Iqueue Team</p>
