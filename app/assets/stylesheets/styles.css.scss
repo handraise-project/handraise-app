@@ -27,6 +27,7 @@ footer {
   background-color: white !important;
 
 }
+
 // LISTS
 // ----------------------------
 .no-bullets {
@@ -157,6 +158,9 @@ footer {
 
       .issue-title, .course-title {
         color: $link-color;
+      }
+      .course-title {
+        font-size: 16px;
       }
 
       ul.meta-info {

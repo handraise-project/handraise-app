@@ -11,6 +11,7 @@
 class Course < ActiveRecord::Base
   has_many :issues
   has_many :responses, :through => :issues
+  validates_presence_of :name, message: "Courses must have a name."
   validates :name, length: {maximum: 20, too_long: "Course names can have no more than 20 characters."}
 
 

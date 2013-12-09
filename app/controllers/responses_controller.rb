@@ -10,7 +10,7 @@ class ResponsesController < ApplicationController
       end
       redirect_to course_issue_path(@issue.course, @issue), :notice => "Reply Posted!"
     else
-      # TODO: error handling
+      redirect_to course_issue_path(@issue.course, @issue), :notice => "Oops, looks like something went wrong :-/"
     end
   end
 

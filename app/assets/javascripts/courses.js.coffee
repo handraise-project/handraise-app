@@ -2,14 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $("#course-submit").length
-  $("#course-submit").attr "disabled", "disabled"
+# $(document).ready ->
+#   $("#course-submit").attr "disabled", "disabled"
 
-  $("#course-name").keyup ->  
-    if $("#course-name").val().length > 0
-      $( "#course-submit" ).removeAttr "disabled"
-    else
-      $("#course-submit").attr "disabled", "disabled"
+
+#   $("#course-name").keyup ->  
+#     if $("#course-name").val().length > 0
+#       $("#course-submit").removeAttr "disabled"
+#     else
+#       $("#course-submit").attr "disabled", "disabled"
 
 

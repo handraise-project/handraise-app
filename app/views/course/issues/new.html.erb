@@ -4,7 +4,7 @@
 
 <%= form_for [@course, @issue], :html => {:role => "form"}  do |f| %>
 <div class="form-group">
-  <%= f.text_field :title, placeholder:"Title", class:"form-control issue-title", :autofocus => true, :id => "issue-title" %>
+  <%= f.text_field :title, placeholder:"Title", class:"form-control issue-title-new", :autofocus => true, :id => "issue-title-new" %>
   <p class="errors"><%= @issue.errors.messages[:title][0] %></p>
 </div>
 <div class="form-group">
@@ -25,5 +25,5 @@
       Notify me when someone replies to this post.
     <% end %>
   </div>
-<%= f.submit class:"btn btn-primary issue-submit", :id => "issue-submit" %>
+<%= f.submit class:"btn btn-primary issue-submit", :id => "issue-submit-new" %>
 <% end %>

@@ -18,7 +18,7 @@
     @course = Course.new(course_params)
 
     if @course.save
-      redirect_to @course, :notice => "Created!"
+      redirect_to @course, :notice => "Created the course #{@course.name}"
     else
       render :new
     end

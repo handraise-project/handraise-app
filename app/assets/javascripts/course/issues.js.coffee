@@ -4,13 +4,24 @@
 
 
 $(document).ready ->
-  if $("#issue-title").val().length > 0
-    $( "#issue-submit" ).removeAttr "disabled"
+  $("#issue-submit-new").attr "disabled", "disabled"
+
+
+  $("#issue-title-new").keyup ->  
+    if $("#issue-title-new").val().length > 0
+      $("#issue-submit-new").removeAttr "disabled"
+    else
+      $("#issue-submit-new").attr "disabled", "disabled"
+
+
+$(document).ready ->
+  if $("#issue-title-edit").val().length > 0
+    $( "#issue-submit-edit" ).removeAttr "disabled"
 
   $("#issue-title").keyup ->  
-    if $("#issue-title").val().length > 0
-      $( "#issue-submit" ).removeAttr "disabled"
+    if $("#issue-title-edit").val().length > 0
+      $( "#issue-submit-edit" ).removeAttr "disabled"
     else
-      $("#issue-submit").attr "disabled", "disabled"
+      $("#issue-submit-edit").attr "disabled", "disabled"
 
 
