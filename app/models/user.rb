@@ -30,7 +30,8 @@ class User < ActiveRecord::Base
     "aviflombaum",
     "ashleygwilliams",
     "jmburges",
-    "blake41"
+    "blake41",
+    "iq-instructor"
   ]
 
   def self.find_or_create_by_omniauth(auth)
