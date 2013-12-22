@@ -43,8 +43,12 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
       user.github_name = auth["info"]["nickname"]
+      if auth["info"]["name"] != nil
+        user.name = auth["info"]["name"]
+      else
+        user.name = user.github_name
+      end
       user.email = auth["info"]["email"]
       user.image_gravatar = auth["info"]["image"]
       user.admin = true if User::COURSE_INSTRUCTORS.include? auth["info"]["nickname"]
